@@ -1,4 +1,4 @@
-# nearby-aliens
+# Nearby Aliens
 Copyright (c) 2019 Jessica Barnett
 
 In this command line c++ game, search nearby star systems for intelligent life!
