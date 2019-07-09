@@ -2,19 +2,29 @@
 //Summer 2019
 //ptTwoAu.h
 
+
+#include <cctype>
+#include <cstring>
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+
 class ptTwoAu
 {
 				public:
-
+								ptTwoAu();
+								void displayTop();
+								void displayBottom();
+								void testDisplay2by3();
+								void testSingleDisplay();
 
 				private:
 								char topLeft;
-								char topCenter;
+								char topLCenter;
+								char topRCenter;
 								char topRight;
-								char middleLeft;
-								char middleCenter;
-								char middleRight;
 								char bottomLeft;
-								char bottomCenter;
+								char bottomLCenter;
+								char bottomRCenter;
 								char bottomRight;
-}
+};

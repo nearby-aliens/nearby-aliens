@@ -4,14 +4,11 @@
 
 using namespace std;
 
-#include <cctype>
-#include <cstring>
-#include <cstdlib>
-#include <iostream>
-#include <fstream>
-
+#include "ptTwoAu.h"
 int main()
 {
+				ptTwoAu aPtTwoAu;
+
 				int starChoice;
 
 				cout << "Welcome to Nearby Aliens. You will search nearby star systems for inteligent life." <<endl <<endl;
@@ -25,6 +22,24 @@ int main()
 				cin >> starChoice;
 				cin.ignore(30, '\n');
 				cout << "You have chosen " << starChoice << ". Good Choice.  Please enter the cryo-chamber, and I will wake you when we arrive." <<endl;
+				cout << "Here is the 2 rows by 3 columns test display: " <<endl;
+				aPtTwoAu.testDisplay2by3();
+cout << endl;
+aPtTwoAu.testSingleDisplay();
+cout <<endl;
+cout << "xxxxx" << endl;
+cout << "xxxxx" << endl;
+cout << "xxxxx" << endl;
+cout <<endl;
+
+cout << "xxxxxxxxxx" << endl;
+cout << "xxxxxxxxxx" <<endl;
+cout << "xxxxxxxxxx" << endl;
+
+cout << "xxxxxxxxxx" << endl;
+cout << "xxxxxxxxxx" <<endl;
+cout << "xxxxxxxxxx" << endl;
+cout << endl;
 				return 0;
 }
 
