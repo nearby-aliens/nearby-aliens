@@ -2,7 +2,7 @@
 //Summer 2019
 //ptTwoAu.cpp
 
-#include "ptTwoAu.h"
+#include "starSystem.h"
 
 using namespace std;
 
