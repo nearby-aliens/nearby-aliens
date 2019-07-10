@@ -9,14 +9,14 @@ using namespace std;
 tile::tile() //constuctor
 {
 
-				topLeft = '.';
-				topLCenter='2';
+				whatIsHere = '.'; //default ., or P for small planet, or 1,2,3,4 for big planet parts, or S for sun
+				lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
 				topRCenter='3';
-				topRight='4';
+				tRightEdge=' ';
 				bottomLeft='5';
-				bottomLCenter='6';
+				shipSpace='_'; // default _ or Q for ship
 				bottomRCenter='7';
-				bottomRight='8';
+				bRightEdge=' ';
 
 }
 
@@ -25,26 +25,26 @@ tile::tile(int i, int j) //constuctor
 {
 xLocation = i;
 yLocation = j;
-				topLeft = '.';
-				topLCenter='2';
+				whatIsHere = '.'; //default ., or P for small planet, or 1,2,3,4 for big planet parts, or S for sun
+				lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
 				topRCenter='3';
-				topRight='4';
+				tRightEdge='_';
 				bottomLeft='5';
-				bottomLCenter='6';
+				shipSpace='_'; // default _ or Q for ship
 				bottomRCenter='7';
-				bottomRight='8';
+				bRightEdge=' ';
 
 }
 
 void tile::displayTop()
 {
-				cout << topLeft << topLCenter << topRCenter << topRight;
+				cout << whatIsHere << lifeType << topRCenter << tRightEdge;
 }
 
 
 void tile::displayBottom()
 {
-				cout << bottomLeft << bottomLCenter << bottomRCenter << bottomRight;
+				cout << bottomLeft << shipSpace << bottomRCenter << bRightEdge;
 }
 
 void tile::testDisplay2by3()
@@ -65,7 +65,7 @@ void tile::testDisplay2by3()
 				}
 }
 
-void tile::testSingleDisplay()
+void tile::printTile()
 {
 				displayTop();
 				cout <<endl;

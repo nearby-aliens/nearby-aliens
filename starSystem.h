@@ -7,7 +7,7 @@ class starSystem
 {
 				public:
 								starSystem(); //constructor
-
+								void printStarSystem();
 				private:
 								tile* systemArray[15][7];
 };

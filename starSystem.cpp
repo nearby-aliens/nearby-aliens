@@ -16,3 +16,14 @@ starSystem::starSystem()
 				}
 }
 
+void starSystem::printStarSystem()
+{
+				for (int i=0; i<15 ; ++i)
+				{
+								for(int j; j<7; ++j)
+								{
+												systemArray[i][j] = new tile(i, j);
+								}
+				}
+}
+

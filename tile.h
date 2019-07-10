@@ -18,17 +18,17 @@ class tile
 								void displayTop();
 								void displayBottom();
 								void testDisplay2by3();
-								void testSingleDisplay();
+								void printTile();
 
 				private:
 								int xLocation;
 								int yLocation;
-								char topLeft;
-								char topLCenter;
+								char whatIsHere; //top left location . for empty space P for small planet. 1,2,3,4 for part of big planet. S for sun
+								char lifeType; //default N none, can be I inteligent, D not inteligent but dangerous, S safe and not inteligent
 								char topRCenter;
-								char topRight;
+								char tRightEdge;
 								char bottomLeft;
-								char bottomLCenter;
+								char shipSpace;  //bottom Lcenter space - should be '_' unless ship is there. then ship icon Q 
 								char bottomRCenter;
-								char bottomRight;
+								char bRightEdge;
 };

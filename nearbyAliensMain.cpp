@@ -23,6 +23,8 @@ int main()
 				cout << "You have chosen " << starChoice << ". Good Choice.  Please enter the cryo-chamber, and I will wake you when we arrive." <<endl;
 
 				starSystem aStarSystem; //new starSytem object
+				aStarSystem.printStarSystem();`
+cout <<endl;
 				return 0;
 }
 
