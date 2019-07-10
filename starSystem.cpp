@@ -22,7 +22,8 @@ void starSystem::printStarSystem()
 				{
 								for(int j; j<7; ++j)
 								{
-												systemArray[i][j] = new tile(i, j);
+											systemArray[i][j]->printTile();
+											
 								}
 				}
 }

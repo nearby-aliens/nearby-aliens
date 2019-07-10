@@ -21,10 +21,14 @@ int main()
 				cin >> starChoice;
 				cin.ignore(30, '\n');
 				cout << "You have chosen " << starChoice << ". Good Choice.  Please enter the cryo-chamber, and I will wake you when we arrive." <<endl;
-
 				starSystem aStarSystem; //new starSytem object
-				aStarSystem.printStarSystem();`
-cout <<endl;
+
+				cout << "Here is a test tile printed"<<endl;
+				tile aTestTile;
+				aTestTile.printTile();
+				cout << "This should print the whole 15x7 system. But doesn't!"<<endl;
+				aStarSystem.printStarSystem();
+				cout <<endl;
 				return 0;
 }
 
