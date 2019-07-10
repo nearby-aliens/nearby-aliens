@@ -8,17 +8,21 @@
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
+using namespace std;
 
-class ptTwoAu
+class tile
 {
 				public:
-								ptTwoAu();
+								tile();
+								tile(int i, int j);
 								void displayTop();
 								void displayBottom();
 								void testDisplay2by3();
 								void testSingleDisplay();
 
 				private:
+								int xLocation;
+								int yLocation;
 								char topLeft;
 								char topLCenter;
 								char topRCenter;

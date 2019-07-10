@@ -1,12 +1,12 @@
 //Jessica Barnett and Thomas Honnell
 //Summer 2019
-//ptTwoAu.cpp
+//tile.cpp
 
 #include "starSystem.h"
 
 using namespace std;
 
-ptTwoAu::ptTwoAu() //constuctor
+tile::tile() //constuctor
 {
 
 				topLeft = '.';
@@ -20,22 +20,39 @@ ptTwoAu::ptTwoAu() //constuctor
 
 }
 
-void ptTwoAu::displayTop()
+
+tile::tile(int i, int j) //constuctor
+{
+xLocation = i;
+yLocation = j;
+				topLeft = '.';
+				topLCenter='2';
+				topRCenter='3';
+				topRight='4';
+				bottomLeft='5';
+				bottomLCenter='6';
+				bottomRCenter='7';
+				bottomRight='8';
+
+}
+
+void tile::displayTop()
 {
 				cout << topLeft << topLCenter << topRCenter << topRight;
 }
 
 
-void ptTwoAu::displayBottom()
+void tile::displayBottom()
 {
 				cout << bottomLeft << bottomLCenter << bottomRCenter << bottomRight;
 }
 
-void ptTwoAu::testDisplay2by3()
+void tile::testDisplay2by3()
 {
 				for(int i=0; i<=1; ++i)
 				{
 								for(int j=0; j<=2; ++j)
+												
 								{
 												displayTop();
 								}
@@ -48,7 +65,7 @@ void ptTwoAu::testDisplay2by3()
 				}
 }
 
-void ptTwoAu::testSingleDisplay()
+void tile::testSingleDisplay()
 {
 				displayTop();
 				cout <<endl;

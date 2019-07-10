@@ -1,7 +1,7 @@
 //Jessica Barnett and Thomas Honnell
 //Summer 2019
 //starSytem.h
-#include "ptTwoAu.h"
+#include "tile.h"
 
 class starSystem
 {
@@ -9,5 +9,5 @@ class starSystem
 								starSystem(); //constructor
 
 				private:
-								ptTwoAu*** systemArray;
+								tile* systemArray[15][7];
 };

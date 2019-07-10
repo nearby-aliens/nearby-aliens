@@ -7,7 +7,6 @@ using namespace std;
 #include "starSystem.h"
 int main()
 {
-				ptTwoAu aPtTwoAu;
 
 				int starChoice;
 
@@ -24,24 +23,6 @@ int main()
 				cout << "You have chosen " << starChoice << ". Good Choice.  Please enter the cryo-chamber, and I will wake you when we arrive." <<endl;
 
 				starSystem aStarSystem; //new starSytem object
-				cout << "Here is the 2 rows by 3 columns test display: " <<endl;
-				aPtTwoAu.testDisplay2by3();
-				cout << endl;
-				aPtTwoAu.testSingleDisplay();
-				cout <<endl;
-				cout << "xxxxx" << endl;
-				cout << "xxxxx" << endl;
-				cout << "xxxxx" << endl;
-				cout <<endl;
-
-				cout << "xxxxxxxxxx" << endl;
-				cout << "xxxxxxxxxx" <<endl;
-				cout << "xxxxxxxxxx" << endl;
-
-				cout << "xxxxxxxxxx" << endl;
-				cout << "xxxxxxxxxx" <<endl;
-				cout << "xxxxxxxxxx" << endl;
-				cout << endl;
 				return 0;
 }
 

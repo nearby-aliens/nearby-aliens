@@ -2,18 +2,16 @@
 //Summer 2019
 //starSystem.cpp
 
-#include "ptTwoAu.h"
+#include "starSystem.h"
 //constructor
+
 starSystem::starSystem()
 {
-				numColumns =15; //x-index column index
-				numRows =7;  //y-index row index
-				for (int i=0; i<numColumns ; ++i)
+				for (int i=0; i<15 ; ++i)
 				{
-								systemArray[i] = ptTwoAu* [numRows];
-								for(int j; j<numColumns; ++j)
+								for(int j; j<7; ++j)
 								{
-												systemArray[i][j] = new ptTwoAu;
+												systemArray[i][j] = new tile(i, j);
 								}
 				}
 }
