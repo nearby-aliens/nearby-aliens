@@ -26,7 +26,7 @@ int main()
 				cout << "Here is a test tile printed"<<endl;
 				tile aTestTile;
 				aTestTile.printTile();
-				cout << "This should print the whole 15x7 system. But doesn't!"<<endl;
+				cout << "This prints the whole 30x11 system"<<endl;
 				aStarSystem.printStarSystem();
 				cout <<endl;
 				return 0;

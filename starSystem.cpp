@@ -7,9 +7,9 @@
 
 starSystem::starSystem()
 {
-				for (int i=0; i<15 ; ++i)
+				for (int i=0; i<30 ; ++i)
 				{
-								for(int j; j<7; ++j)
+								for(int j=0; j<11; ++j)
 								{
 												systemArray[i][j] = new tile(i, j);
 								}
@@ -18,13 +18,19 @@ starSystem::starSystem()
 
 void starSystem::printStarSystem()
 {
-				for (int i=0; i<15 ; ++i)
+				for(int j=10; j>-1; --j)
 				{
-								for(int j; j<7; ++j)
+								for (int i=0; i<30 ; ++i)
 								{
-											systemArray[i][j]->printTile();
-											
+												(systemArray[i][j])->displayTop();
 								}
+												cout << endl;
+								for (int i=0; i<30 ; ++i)
+								{
+												(systemArray[i][j])->displayBottom();
+								}
+												cout << endl;
+								
 				}
 }
 

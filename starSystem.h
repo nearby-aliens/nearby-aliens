@@ -9,5 +9,5 @@ class starSystem
 								starSystem(); //constructor
 								void printStarSystem();
 				private:
-								tile* systemArray[15][7];
+								tile* systemArray[30][15];
 };
