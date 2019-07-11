@@ -17,6 +17,7 @@ class tile
 								tile(int i, int j);
 								void displayTop();
 								void displayBottom();
+//								void makeSmallPlanet(int i, int j);
 								void testDisplay2by3();
 								void printTile();
 
@@ -25,6 +26,9 @@ class tile
 								int yLocation;
 								char whatIsHere; //top left location . for empty space P for small planet. 1,2,3,4 for part of big planet. S for sun
 								char lifeType; //default N none, can be I inteligent, D not inteligent but dangerous, S safe and not inteligent
+
+								char topLeft;
+								char topLCenter;
 								char topRCenter;
 								char tRightEdge;
 								char bottomLeft;

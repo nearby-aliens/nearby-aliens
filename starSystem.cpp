@@ -24,13 +24,19 @@ void starSystem::printStarSystem()
 								{
 												(systemArray[i][j])->displayTop();
 								}
-												cout << endl;
+								cout << endl;
 								for (int i=0; i<30 ; ++i)
 								{
 												(systemArray[i][j])->displayBottom();
 								}
-												cout << endl;
-								
+								cout << endl;
+
 				}
 }
 
+/*
+void starSystem::addPlanet(int i, int j)
+{
+				*(systemArray[i][j])
+}
+*/

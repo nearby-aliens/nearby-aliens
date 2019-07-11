@@ -1,4 +1,4 @@
-//Jessica Barnett and Thomas Honnell
+  //Jessica Barnett and Thomas Honnell
 //Summer 2019
 //tile.cpp
 
@@ -9,8 +9,13 @@ using namespace std;
 tile::tile() //constuctor
 {
 
+				lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
 				whatIsHere = '.'; //default ., or P for small planet, or 1,2,3,4 for big planet parts, or S for sun
 				lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
+				whatIsHere = '.'; //default ., or P for small planet, or 1,2,3,4 for big planet parts, or S for sun
+
+        topLeft = ' ';
+				topLCenter = ' ';	
 				topRCenter='3';
 				tRightEdge=' ';
 				bottomLeft=' ';
@@ -23,22 +28,45 @@ tile::tile() //constuctor
 
 tile::tile(int i, int j) //constuctor
 {
-xLocation = i;
-yLocation = j;
-				whatIsHere = '.'; //default ., or P for small planet, or 1,2,3,4 for big planet parts, or S for sun
+				xLocation = i;
+				yLocation = j;
 				lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
-				topRCenter='3';
+				whatIsHere = '.'; //default ., or P for small planet, or 1,2,3,4 for big planet parts, or S for sun
+
+
+				topLeft = ' ';
+				topLCenter = ' ';	
+				topRCenter=' ';
 				tRightEdge=' ';
 				bottomLeft=' ';
 				shipSpace='_'; // default _ or Q for ship
-				bottomRCenter='7';
+				bottomRCenter=' ';
 				bRightEdge=' ';
-
 }
+
+
+/*
+void tile::makeSmallPlanet(int i, int j)
+{
+				xLocation = i;
+				yLocation = j;
+				lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
+				whatIsHere = ' '; //default ., or P for small planet, or 1,2,3,4 for big planet parts, or S for sun
+
+				topLeft =' ';
+				topLCenter = '@';	
+				topRCenter='@';
+				tRightEdge=' ';
+				bottomLeft=' ';
+				shipSpace='@'; // default _ or Q for ship
+				bottomRCenter='@';
+				bRightEdge=' ';
+}
+*/ 
 
 void tile::displayTop()
 {
-				cout << whatIsHere << lifeType << topRCenter << tRightEdge;
+				cout << topLeft << topLCenter << topRCenter << tRightEdge;
 }
 
 
@@ -52,7 +80,7 @@ void tile::testDisplay2by3()
 				for(int i=0; i<=1; ++i)
 				{
 								for(int j=0; j<=2; ++j)
-												
+
 								{
 												displayTop();
 								}
