@@ -1,4 +1,4 @@
-  //Jessica Barnett and Thomas Honnell
+//Jessica Barnett and Thomas Honnell
 //Summer 2019
 //tile.cpp
 
@@ -8,21 +8,20 @@ using namespace std;
 
 tile::tile() //constuctor
 {
+	xLocation = 0;
+	yLocation = 0;
+	lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
+	whatIsHere = '.'; //default ., or P for small planet, or 1,2,3,4 for big planet parts, or S for sun
 
-				lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
-				whatIsHere = '.'; //default ., or P for small planet, or 1,2,3,4 for big planet parts, or S for sun
-				lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
-				whatIsHere = '.'; //default ., or P for small planet, or 1,2,3,4 for big planet parts, or S for sun
-
-        topLeft = ' ';
-				topLCenter = ' ';	
-				topRCenter='3';
-				tRightEdge=' ';
-				bottomLeft=' ';
-				shipSpace='_'; // default _ or Q for ship
-				bottomRCenter='7';
-				bRightEdge=' ';
-
+//these eight character fields (below) are displayed for each tile
+	topLeft = ' ';
+	topLCenter = ' ';	
+	topRCenter=' ';
+	tRightEdge=' ';
+	bottomLeft=' ';
+	shipSpace='_'; // default _ or Q for ship
+	bottomRCenter=' ';
+	bRightEdge=' ';
 }
 
 
@@ -45,14 +44,15 @@ tile::tile(int i, int j) //constuctor
 }
 
 
-/*
-void tile::makeSmallPlanet(int i, int j)
+void tile::fillPlanet(int i, int j)
 {
 				xLocation = i;
 				yLocation = j;
 				lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
 				whatIsHere = ' '; //default ., or P for small planet, or 1,2,3,4 for big planet parts, or S for sun
 
+
+				//these below are the eight characters that print
 				topLeft =' ';
 				topLCenter = '@';	
 				topRCenter='@';
@@ -62,8 +62,9 @@ void tile::makeSmallPlanet(int i, int j)
 				bottomRCenter='@';
 				bRightEdge=' ';
 }
-*/ 
 
+//starSystems display uses displayTop to print the whole top line of all tiles
+// being displayed (starting at top so j index starts at 10 and is decremented)
 void tile::displayTop()
 {
 				cout << topLeft << topLCenter << topRCenter << tRightEdge;
@@ -75,24 +76,7 @@ void tile::displayBottom()
 				cout << bottomLeft << shipSpace << bottomRCenter << bRightEdge;
 }
 
-void tile::testDisplay2by3()
-{
-				for(int i=0; i<=1; ++i)
-				{
-								for(int j=0; j<=2; ++j)
-
-								{
-												displayTop();
-								}
-								cout <<endl;
-								for(int j=0; j<=2; ++j)
-								{
-												displayBottom();
-								}
-								cout<<endl;
-				}
-}
-
+//rarely used
 void tile::printTile()
 {
 				displayTop();

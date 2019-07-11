@@ -27,12 +27,14 @@ int main()
 				cout << "You have chosen " << starChoice << ". Good Choice." <<endl;
 				cout << "Please make yourself comfortable in the cryo-chamber, and I will wake you when we arrive." <<endl;
 				starSystem aStarSystem; //new starSytem object
-/*				if (starChoice == 2)
+// choice 2
+if(starChoice==2)
 {
-				aStarSystem.addPlanet(3,2);
+				aStarSystem.addPlanet(5,2);
+				aStarSystem.addPlanet(8,6);
+				aStarSystem.addPlanet(12,5);
 
 }
-*/
 
 				cout << "Here is a test tile printed"<<endl;
 				tile aTestTile;
