@@ -16,10 +16,15 @@ This project is super welcoming to all! Check out our code of conduct.
 
 # Build and Run
 //TODO - need
+
 Checkout and download instructions
+
 Prerequisites for build
+
 Build instructions
+
 Installation instructions
+
 
 # Project Status
 We are in the beginning stages of building this project. The gameboard in each level is an 
