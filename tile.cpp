@@ -43,6 +43,15 @@ tile::tile(int i, int j) //constuctor
   bRightEdge=' ';
 }
 
+void tile::move()
+{
+  shipSpace='Q';
+}
+
+void tile::remove()
+{
+  shipSpace='@';
+}
 
 void tile::fillPlanet(int i, int j)
 {

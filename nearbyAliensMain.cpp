@@ -8,6 +8,9 @@ using namespace std;
 int main()
 {
   int starChoice = 99;
+  chara player;
+  player.x=0;
+  player.y=0;
 
   cout << "Welcome to Nearby Aliens. You will search nearby star systems for inteligent life." <<endl <<endl;
   cout << "Begin your journey by choosing a star system." <<endl;
@@ -50,6 +53,34 @@ int main()
   cout << YELLOWonRED << "This is yellow on red" <<endl;
   cout << REDonYELLOW << "This is red on yellow" <<endl;
   cout << RESET << "Now back to default white on black" <<endl;
+
+  cout <<endl;
+  char move;
+  while(1)
+  {
+    cout << "input wasd to move";
+    cin >> move;
+    cin.ignore(30, '\n');
+    if(move == 'w'){
+      player.y+=1;
+      player.m=move;
+    }
+    if(move == 'a'){
+      player.x-=1;
+      player.m=move;
+    }
+    if(move == 's'){
+      player.y-=1;
+      player.m=move;
+    }
+    if(move == 'd'){
+      player.x+=1;
+      player.m=move;
+    }
+    
+
+
+  }
   return 0;
 
 }

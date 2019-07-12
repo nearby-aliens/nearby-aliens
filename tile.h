@@ -10,6 +10,13 @@
 #include <fstream>
 using namespace std;
 
+class chara
+{
+  int x;
+  int y;
+  char m;
+};
+
 class tile
 {
   public:
@@ -19,6 +26,8 @@ class tile
     void displayBottom();
     void fillPlanet(int i, int j);
     void printTile();
+    void move();
+    void remove();
 
   private:
     int xLocation;

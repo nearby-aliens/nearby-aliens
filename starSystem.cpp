@@ -20,6 +20,18 @@ starSystem::starSystem()//initialize array. i columns are across the screen star
   }
 }
 
+void starSystem::move(chara p)
+{  
+  systemArray[p.x][p.y].move();
+  if(p.m=='w')
+    systemArray[p.x][p.y+1].remove();
+  if(p.m=='a')
+    systemArray[p.x-1][p.y].remove();
+  if(p.m=='s')
+    systemArray[p.x][p.y-1].remove();
+  if(p.m=='d')
+    systemArray[p.x+1][p.y].remove();
+}
 
 //starSystems display uses displayTop to print the whole top line of all tiles
 // being displayed (starting at top so j index starts at 10 and is decremented)

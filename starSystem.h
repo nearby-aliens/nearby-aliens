@@ -10,6 +10,7 @@ class starSystem
     starSystem(); //constructor
     void addPlanet(int i, int j);
     void printStarSystem();
+    void move(chara p);
   private:
     tile* systemArray[30][15];
 };
