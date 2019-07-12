@@ -1,5 +1,6 @@
 # Nearby Aliens
 Copyright (c) 2019 Jessica Barnett 
+
 jessba2 AT pdx DOT edu
 
 In this command line c++ game, search nearby star systems for intelligent life!
@@ -14,7 +15,11 @@ programming level grab one of the issues marked 'good for 1st contribution'.
 This project is super welcoming to all! Check out our code of conduct.
 
 # Build and Run
-//TODO
+//TODO - need
+Checkout and download instructions
+Prerequisites for build
+Build instructions
+Installation instructions
 
 # Project Status
 We are in the beginning stages of building this project. The gameboard in each level is an 
@@ -33,3 +38,4 @@ dictator :). That said, we have not had any problems. We are kind and encouragin
 
 # License
 This program is licensed under the "GNU General Public License".
+Please see the file LICENSE in the source distribution of this software for license terms.
