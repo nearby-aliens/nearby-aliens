@@ -26,11 +26,12 @@ int main()
     {
       cout << "Currently, only choice two is implemented. Please choose choice 2 to play. (Or go to our github and implement one of the other choices!)" <<endl;
     }
-    cout << "You have chosen " << starChoice << ". Good Choice." <<endl;
-    cout << "Please make yourself comfortable in the cryo-chamber, and I will wake you when we arrive." <<endl;
   }
+  cout << "You have chosen " << starChoice << ". Good Choice." <<endl;
+  cout << "Please make yourself comfortable in the cryo-chamber, and I will wake you when we arrive." <<endl;
 
-    starSystem aStarSystem; //new starSytem object
+
+  starSystem aStarSystem; //new starSytem object
   // choice 2
   if(starChoice==2)
   {
@@ -46,7 +47,7 @@ int main()
   cout << RED << "This is red" <<endl;
   cout << GREEN << "This is green" <<endl;
   cout << YELLOW << "This is yellow" <<endl;
-cout << CYAN << "This is cyan" << endl;
+  cout << CYAN << "This is cyan" << endl;
   cout << YELLOWonRED << "This is yellow on red" <<RESET<< endl;
   cout << REDonYELLOW << "This is red on yellow. When using 'onColor' include <<RESET<< in the same cout statement before endl;" <<RESET << endl;
   cout << RESET << "Now back to default white on black" <<endl;

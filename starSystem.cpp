@@ -43,14 +43,18 @@ void starSystem::printStarSystem()
 
 void starSystem::makeSystem(int level)
 {
-    systemArray[5][2]->fillPlanet(5,2,'r','y');
-//    addSmallPlanet(8,6,'a', 'a');
- //   addSmallPlanet(12,5,'a', 'a');
+  if(level == 2) 
+  {
+    makeAlphaCentauriSystem();
+  }
 }
 
-
-void starSystem::addSmallPlanet(int i, int j, char aColor, char anotherColor)
+void starSystem::makeAlphaCentauriSystem()
 {
-  systemArray[i][j]->fillPlanet(i, j, aColor, anotherColor);
+
+  systemArray[5][2]->fillPlanet(5,2,'r','y');
+
 }
+
+
 
