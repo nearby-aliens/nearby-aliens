@@ -11,7 +11,7 @@ int main()
 
   cout << "Welcome to Nearby Aliens. You will search nearby star systems for inteligent life." <<endl <<endl;
   cout << "Begin your journey by choosing a star system." <<endl;
-  while(starChoice<=0 || starChoice >=6)
+  while(starChoice !=2 && starChoice !=3) //(starChoice<=0 || starChoice >=6)
   {
     cout << "Please enter your choice from 1 to 5" <<endl;
     cout << "	1)Proxima Centauri (4.24 light years)"<<endl;
@@ -22,23 +22,22 @@ int main()
     cout << "Enter the number of your choice: " <<endl;
     cin >> starChoice;
     cin.ignore(30, '\n');
+    if(starChoice !=2)
+    {
+      cout << "Currently, only choice two is implemented. Please choose choice 2 to play. (Or go to our github and implement one of the other choices!)" <<endl;
+    }
+    cout << "You have chosen " << starChoice << ". Good Choice." <<endl;
+    cout << "Please make yourself comfortable in the cryo-chamber, and I will wake you when we arrive." <<endl;
   }
-  cout << "You have chosen " << starChoice << ". Good Choice." <<endl;
-  cout << "Please make yourself comfortable in the cryo-chamber, and I will wake you when we arrive." <<endl;
-  starSystem aStarSystem; //new starSytem object
 
+    starSystem aStarSystem; //new starSytem object
   // choice 2
   if(starChoice==2)
   {
-    aStarSystem.addPlanet(5,2);
-    aStarSystem.addPlanet(8,6);
-    aStarSystem.addPlanet(12,5);
+    aStarSystem.makeSystem(starChoice);
 
   }
 
-  cout << "Here is a test tile printed"<<endl;
-  tile aTestTile;
-  aTestTile.printTile();
   cout << "This prints the whole 30x11 system"<<endl;
   aStarSystem.printStarSystem();
   cout <<endl;

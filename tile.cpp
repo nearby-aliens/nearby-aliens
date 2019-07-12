@@ -11,7 +11,9 @@ tile::tile() //constuctor
   xLocation = 0;
   yLocation = 0;
   lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
-  whatIsHere = '.'; //default ., or P for small planet, or 1,2,3,4 for big planet parts, or S for sun
+  whatIsHere = '.'; //default ., or s for small planet, or 1,2,3,4 for big planet parts, or S for sun
+  color1 = 'a';
+  color2 = 'a';
 
   //these eight character fields (below) are displayed for each tile
   topLeft = ' ';
@@ -31,25 +33,28 @@ tile::tile(int i, int j) //constuctor
   yLocation = j;
   lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
   whatIsHere = '.'; //default ., or P for small planet, or 1,2,3,4 for big planet parts, or S for sun
-
+  color1 = 'a';
+  color2 = 'a';
 
   topLeft = ' ';
   topLCenter = ' ';	
   topRCenter=' ';
   tRightEdge=' ';
   bottomLeft=' ';
-  shipSpace='_'; // default _ or Q for ship
+  shipSpace='-'; // default _ or Q for ship
   bottomRCenter=' ';
   bRightEdge=' ';
 }
 
 
-void tile::fillPlanet(int i, int j)
+void tile::fillPlanet(int i, int j, char color1, char anotherColor)
 {
   xLocation = i;
   yLocation = j;
   lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
-  whatIsHere = ' '; //default ., or P for small planet, or 1,2,3,4 for big planet parts, or S for sun
+  whatIsHere = 's'; //default ., or s for small planet, or 1,2,3,4 for big planet parts, or S for sun
+  color1 = 'r';
+  color2 = 'y';
 
 
   //these below are the eight characters that print
@@ -67,20 +72,26 @@ void tile::fillPlanet(int i, int j)
 // being displayed (starting at top so j index starts at 10 and is decremented)
 void tile::displayTop()
 {
-  cout << topLeft << topLCenter << topRCenter << tRightEdge;
+  if(color1=='r' && color2=='y')
+  {
+    cout << REDonYELLOW << topLeft << topLCenter<< YELLOWonRED << topRCenter << tRightEdge<< RESET;
+  }
+  else
+  {
+    cout << topLeft << topLCenter << topRCenter << tRightEdge;
+  }
 }
 
 
 void tile::displayBottom()
 {
-  cout << bottomLeft << shipSpace << bottomRCenter << bRightEdge;
-}
 
-//rarely used
-void tile::printTile()
-{
-  displayTop();
-  cout <<endl;
-  displayBottom();
-  cout <<endl;
+  if(color1=='r' && color2=='y')
+  {
+    cout << REDonYELLOW << bottomLeft << RESET << shipSpace << YELLOWonRED << bottomRCenter << bRightEdge <<RESET;
+  }
+  else
+  {
+    cout << bottomLeft << shipSpace << bottomRCenter << bRightEdge;
+  }
 }

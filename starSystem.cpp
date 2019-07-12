@@ -40,7 +40,17 @@ void starSystem::printStarSystem()
   }
 }
 
-void starSystem::addPlanet(int i, int j)
+
+void starSystem::makeSystem(int level)
 {
-  systemArray[i][j]->fillPlanet(i, j);
+    systemArray[5][2]->fillPlanet(5,2,'r','y');
+//    addSmallPlanet(8,6,'a', 'a');
+ //   addSmallPlanet(12,5,'a', 'a');
 }
+
+
+void starSystem::addSmallPlanet(int i, int j, char aColor, char anotherColor)
+{
+  systemArray[i][j]->fillPlanet(i, j, aColor, anotherColor);
+}
+
