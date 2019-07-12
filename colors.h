@@ -9,11 +9,11 @@
 #define WHITE "\033[37m"   
 
 #define YELLOWonRED    "\033[33;41m"
-#define OnGREEN  "\033[42m"
+#define CYANonGREEN  "\033[36;42m"
 #define REDonYELLOW  "\033[31;43m"
-#define onBLUE   "\033[44m"
-#define onMAGENTA "\033[45m"
-#define onCYAN   "\033[46m"
+#define MAGENTAonBLUE   "\033[35;44m"
+#define BLUEonMAGENTA "\033[34;45m"
+#define GREENonCYAN   "\033[32;46m"
 #define BLACKonWHITE "\033[30;47m"   
 
 

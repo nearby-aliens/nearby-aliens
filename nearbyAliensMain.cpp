@@ -46,8 +46,9 @@ int main()
   cout << RED << "This is red" <<endl;
   cout << GREEN << "This is green" <<endl;
   cout << YELLOW << "This is yellow" <<endl;
-  cout << YELLOWonRED << "This is yellow on red" <<endl;
-  cout << REDonYELLOW << "This is red on yellow" <<endl;
+cout << CYAN << "This is cyan" << endl;
+  cout << YELLOWonRED << "This is yellow on red" <<RESET<< endl;
+  cout << REDonYELLOW << "This is red on yellow. When using 'onColor' include <<RESET<< in the same cout statement before endl;" <<RESET << endl;
   cout << RESET << "Now back to default white on black" <<endl;
   return 0;
 

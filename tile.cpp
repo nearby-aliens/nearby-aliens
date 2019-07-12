@@ -47,14 +47,14 @@ tile::tile(int i, int j) //constuctor
 }
 
 
-void tile::fillPlanet(int i, int j, char color1, char anotherColor)
+void tile::fillPlanet(int i, int j, char aColor, char anotherColor)
 {
   xLocation = i;
   yLocation = j;
   lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
   whatIsHere = 's'; //default ., or s for small planet, or 1,2,3,4 for big planet parts, or S for sun
-  color1 = 'r';
-  color2 = 'y';
+  color1 = aColor;
+  color2 = anotherColor;
 
 
   //these below are the eight characters that print
@@ -74,7 +74,7 @@ void tile::displayTop()
 {
   if(color1=='r' && color2=='y')
   {
-    cout << REDonYELLOW << topLeft << topLCenter<< YELLOWonRED << topRCenter << tRightEdge<< RESET;
+    cout << topLeft << YELLOWonRED  << topLCenter  << topRCenter <<RESET << tRightEdge;
   }
   else
   {
@@ -88,7 +88,7 @@ void tile::displayBottom()
 
   if(color1=='r' && color2=='y')
   {
-    cout << REDonYELLOW << bottomLeft << RESET << shipSpace << YELLOWonRED << bottomRCenter << bRightEdge <<RESET;
+    cout << bottomLeft << YELLOWonRED << shipSpace << bottomRCenter <<RESET <<  bRightEdge;
   }
   else
   {
