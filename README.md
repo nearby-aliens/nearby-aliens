@@ -38,6 +38,13 @@ functionality of moving from one 'tile' to another. The gameboard is a 30 by 11 
 pointers. Each tile is made up of 4by2 characters and represents approximately .2Au by .2Au of 
 space. 
 
+# Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please note that this project is released with a Contributor Code of Conduct. By participating 
+in this project you agree to abide by its terms. The code of conduct is enforced by a benevolent 
+dictator :). That said, we have not had any problems. We are kind and encouraging to each other.
+
 # Roadmap
 The "demo" or "prototype" version includes the basic menu structure of choosing a 
 star system and going there. It includes the ASCII art for one system - the alpha centauri binary
@@ -59,13 +66,6 @@ the soil, exploring abandoned alien structures and being shown current thriving 
 
 Future plans include working on advanced features, maintaining the project for new users to 
 play with and learn the coding for the ASCII art creating new star systems.
-
-# Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please note that this project is released with a Contributor Code of Conduct. By participating 
-in this project you agree to abide by its terms. The code of conduct is enforced by a benevolent 
-dictator :). That said, we have not had any problems. We are kind and encouraging to each other.
 
 # License
 This program is licensed under the "GNU General Public License".
