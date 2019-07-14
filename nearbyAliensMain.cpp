@@ -39,18 +39,20 @@ int main()
 
   }
 
-  cout << "This prints the whole 30x11 system"<<endl;
+  cout << endl;
+  cout << endl;
+  cout << "Your cyro-cycle has completed and we have arrived!!" <<endl <<endl;
   aStarSystem.printStarSystem();
   cout <<endl;
 
-  cout << "Now let's test colors!" << endl;
-  cout << RED << "This is red" <<endl;
-  cout << GREEN << "This is green" <<endl;
-  cout << YELLOW << "This is yellow" <<endl;
+  cout << "Practice display" << endl;
+  cout << RED << "        w for up" <<endl;
+  cout << GREEN << "a for left        d for right" <<endl;
+  cout << YELLOW << "       s for down" <<endl;
   cout << CYAN << "This is cyan" << endl;
-  cout << YELLOWonRED << "This is yellow on red" <<RESET<< endl;
-  cout << REDonYELLOW << "This is red on yellow. When using 'onColor' include <<RESET<< in the same cout statement before endl;" <<RESET << endl;
-  cout << RESET << "Now back to default white on black" <<endl;
+  cout << BLUE << "This is blue" << endl;
+  cout << MAGENTA << "This is magenta" << endl;
+  cout << RESET << "Bottom of practice display" <<endl;
   return 0;
 
 }

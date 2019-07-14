@@ -53,11 +53,28 @@ void starSystem::makeSystem(int level)
 void starSystem::makeAlphaCentauriSystem()
 {
 //make Suns - binary suns for alpha Centauri
+//alpha centauri A is a yellow sun a bit bigger than Sol. 
+  systemArray[0][10]->fillSunTile('r', 'y'); //A
+  systemArray[0][9]->fillSunTile('r', 'y'); //A
+  systemArray[0][8]->fillSunTile('r', 'y'); //A
+  systemArray[0][7]->fillSunTile('r', 'y'); //A
+  systemArray[1][10]->fillSunTile('r', 'y'); //A
+  systemArray[1][9]->fillSunTile('r', 'y'); //A
+  systemArray[1][8]->fillSunTile('r', 'y'); //A
+  systemArray[2][10]->fillSunTile('r', 'y'); //A
+  systemArray[2][9]->fillSunTile('r', 'y'); //A
+  
+//alpha centauri B is organge a bit smaller than Sol.
+  systemArray[0][3]->fillSunTile('y', 'r'); //B yellow on red
+  systemArray[0][2]->fillSunTile('y', 'r'); //B yellow on red
+  systemArray[0][1]->fillSunTile('y', 'r'); //B yellow on red
 
-//make planets
-  systemArray[5][6]->fillPlanet(5,2,'y','r'); // yellow on red small close in planet
-  systemArray[7][2]->fillPlanet(5,2,'c','g'); // cyan on green small close in planet
+//make planets. alpha centauri has no confirmed planets. 
+//wikipedia cites a source that estimates at 75% that terrestrial planets are there
+//with artistic license we put some here :)
+  systemArray[7][2]->fillPlanet(5,2,'g', 'c'); // green on cyan small close in planet
   systemArray[13][5]->fillPlanet(5,2,'b','m'); // blue on magenta small 3rd closest in planet
+//eventually 3 small planets, 1 large and 2 medium size
 }
 
 

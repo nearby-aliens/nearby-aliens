@@ -47,6 +47,76 @@ tile::tile(int i, int j) //constuctor
 }
 
 
+
+//starSystems display uses displayTop to print the whole top line of all tiles
+// being displayed (starting at top so j index starts at 10 and is decremented)
+void tile::displayTop()
+{
+  if(whatIsHere=='S')
+  {
+    //yellow sun
+    if(color1=='r' && color2=='y') //red on yellow
+    {
+      cout << REDonYELLOW << topLeft << topLCenter  << topRCenter << tRightEdge <<RESET;
+    }
+    //red sun
+    else if(color1=='y' && color2=='r')  //yellow on red
+    {
+      cout << YELLOWonRED << topLeft << topLCenter  << topRCenter << tRightEdge <<RESET;
+    }
+
+  }
+  else
+  {
+    if(color1=='g' && color2=='c') //green on cyan
+    {
+      cout << topLeft << GREENonCYAN << topLCenter  << topRCenter <<RESET << tRightEdge;
+    }
+    else if(color1=='b' && color2=='m') //blue on magenta
+    {
+      cout << topLeft << BLUEonMAGENTA  << topLCenter  << topRCenter <<RESET << tRightEdge;
+    }
+    else
+    {
+      cout << topLeft << topLCenter << topRCenter << tRightEdge;
+    }
+  }
+}
+
+
+void tile::displayBottom()
+{
+  if(whatIsHere=='S')
+  {
+    //yellow sun
+    if(color1=='r' && color2=='y') //red on yellow
+    {
+      cout << REDonYELLOW << bottomLeft << shipSpace  << bottomRCenter << bRightEdge <<RESET;
+    }
+    //red sun
+    else if(color1=='y' && color2=='r')  //yellow on red
+    {
+      cout << YELLOWonRED << bottomLeft << shipSpace << bottomRCenter << bRightEdge << RESET;
+    }
+
+  }
+  else
+  {
+    if(color1=='g' && color2=='c') //green on cyan
+    {
+      cout << bottomLeft << GREENonCYAN << shipSpace << bottomRCenter <<RESET <<  bRightEdge;
+    }
+    else if(color1=='b' && color2=='m') //for blue magenta planets
+    {
+      cout << bottomLeft << BLUEonMAGENTA << shipSpace << bottomRCenter <<RESET <<  bRightEdge;
+    }
+    else
+    {
+      cout << bottomLeft << shipSpace << bottomRCenter << bRightEdge;
+    }
+  }
+}
+
 void tile::fillPlanet(int i, int j, char aColor, char anotherColor)
 {
   xLocation = i;
@@ -55,8 +125,6 @@ void tile::fillPlanet(int i, int j, char aColor, char anotherColor)
   whatIsHere = 's'; //default ., or s for small planet, or 1,2,3,4 for big planet parts, or S for sun
   color1 = aColor;
   color2 = anotherColor;
-
-
   //these below are the eight characters that print
   topLeft =' ';
   topLCenter = '@';	
@@ -68,55 +136,19 @@ void tile::fillPlanet(int i, int j, char aColor, char anotherColor)
   bRightEdge=' ';
 }
 
-//starSystems display uses displayTop to print the whole top line of all tiles
-// being displayed (starting at top so j index starts at 10 and is decremented)
-void tile::displayTop()
+void tile::fillSunTile( char aColor, char anotherColor)
 {
-  if(color1=='r' && color2=='y') //red on yellow
-  {
-    cout << topLeft << REDonYELLOW << topLCenter  << topRCenter <<RESET << tRightEdge;
-  }
-  else if(color1=='y' && color2=='r')  //yellow on red
-  {
-    cout << topLeft << YELLOWonRED << topLCenter  << topRCenter <<RESET << tRightEdge;
-  }
-  else if(color1=='g' && color2=='c') //green on cyan
-  {
-    cout << topLeft << GREENonCYAN << topLCenter  << topRCenter <<RESET << tRightEdge;
-  }
-  else if(color1=='b' && color2=='m') //blue on magenta
-  {
-    cout << topLeft << BLUEonMAGENTA  << topLCenter  << topRCenter <<RESET << tRightEdge;
-  }
-  else
-  {
-    cout << topLeft << topLCenter << topRCenter << tRightEdge;
-  }
-}
-
-
-void tile::displayBottom()
-{
-
-  if(color1=='r' && color2=='y')  //for red and yellow planets or YELLOW Suns
-  {
-    cout << bottomLeft << REDonYELLOW << shipSpace << bottomRCenter <<RESET <<  bRightEdge;
-  }
-  else if(color1=='y' && color2=='r')  //for yellow and red planets or RED Suns
-  {
-    cout << bottomLeft << YELLOWonRED << shipSpace << bottomRCenter <<RESET <<  bRightEdge;
-  }
-
-  else if(color1=='g' && color2=='c') //for green and cyan planets
-  {
-    cout << bottomLeft << GREENonCYAN << shipSpace << bottomRCenter <<RESET <<  bRightEdge;
-  }
-  else if(color1=='b' && color2=='m') //for blue magenta planets
-  {
-    cout << bottomLeft << YELLOWonRED << shipSpace << bottomRCenter <<RESET <<  bRightEdge;
-  }
-  else
-  {
-    cout << bottomLeft << shipSpace << bottomRCenter << bRightEdge;
-  }
+  lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
+  whatIsHere = 'S'; //default ., or s for small planet, or 1,2,3,4 for big planet parts, or S for sun
+  color1 = aColor;
+  color2 = anotherColor;
+  //these below are the eight characters that print
+  topLeft ='%';
+  topLCenter = '%';	
+  topRCenter='%';
+  tRightEdge='%';
+  bottomLeft='%';
+  shipSpace='%'; // default _ or Q for ship
+  bottomRCenter='%';
+  bRightEdge='%';
 }

@@ -18,6 +18,7 @@ class tile
     void displayTop();
     void displayBottom();
     void fillPlanet(int i, int j, char color1, char color2);
+    void fillSunTile( char aColor, char anotherColor);
     void printTile();
 
   private:
