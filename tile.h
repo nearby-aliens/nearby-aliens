@@ -26,6 +26,7 @@ class tile
     int yLocation;
     char whatIsHere; //top left location .for empty space s for small planet. 1,2,3,4 for part of big planet. S for sun
     char lifeType; //default N none, can be I inteligent, D not inteligent but dangerous, S safe and not inteligent
+int partialArt; // 0 default. 832 left justified 3 on top row, 2 bottow row. 932 same but right justified
     char color1;
     char color2;
 
