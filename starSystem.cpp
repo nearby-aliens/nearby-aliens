@@ -40,7 +40,8 @@ void starSystem::printStarSystem()
   }
 }
 
-
+//this function takes an integer that represents which star system is being created
+//and calls the appropriate function to make the ASCII art for that system
 void starSystem::makeSystem(int level)
 {
   if(level == 2) 
@@ -51,9 +52,12 @@ void starSystem::makeSystem(int level)
 
 void starSystem::makeAlphaCentauriSystem()
 {
+//make Suns - binary suns for alpha Centauri
 
-  systemArray[5][2]->fillPlanet(5,2,'r','y');
-
+//make planets
+  systemArray[5][6]->fillPlanet(5,2,'y','r'); // yellow on red small close in planet
+  systemArray[7][2]->fillPlanet(5,2,'c','g'); // cyan on green small close in planet
+  systemArray[13][5]->fillPlanet(5,2,'b','m'); // blue on magenta small 3rd closest in planet
 }
 
 
