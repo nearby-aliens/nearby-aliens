@@ -64,20 +64,24 @@ int main()
     if(move == 'w'){
       player.y+=1;
       player.m=move;
+      aStarSystem.move(player);
     }
     if(move == 'a'){
       player.x-=1;
       player.m=move;
+      aStarSystem.move(player);
     }
     if(move == 's'){
       player.y-=1;
       player.m=move;
+      aStarSystem.move(player);
     }
     if(move == 'd'){
       player.x+=1;
       player.m=move;
+      aStarSystem.move(player);
     }
-    
+    aStarSystem.printStarSystem();
 
 
   }
