@@ -31,6 +31,7 @@ void starSystem::move(chara p)
     systemArray[p.x][p.y+1]->remove();
   if(p.m=='d')
     systemArray[p.x-1][p.y]->remove();
+  /*
   for (int dx = -1; dx <= 1; dx++) {
     for (int dy = -1; dy <= 1; dy++) {
       if (dx == 0 && dy == 0)
@@ -59,6 +60,7 @@ void starSystem::move(chara p)
       }
     }
   }
+  */
 }
 
 //starSystems display uses displayTop to print the whole top line of all tiles
