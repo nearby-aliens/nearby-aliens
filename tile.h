@@ -12,6 +12,8 @@ using namespace std;
 
 class chara
 {
+ public:
+  
   int x;
   int y;
   char m;

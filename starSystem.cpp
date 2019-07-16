@@ -21,29 +21,44 @@ starSystem::starSystem()//initialize array. i columns are across the screen star
 }
 
 void starSystem::move(chara p)
-{  
-  systemArray[p.x][p.y].move();
+{
+  systemArray[p.x][p.y]->move();
   if(p.m=='w')
-    systemArray[p.x][p.y+1].remove();
+    systemArray[p.x][p.y-1]->remove();
   if(p.m=='a')
-    systemArray[p.x-1][p.y].remove();
+    systemArray[p.x+1][p.y]->remove();
   if(p.m=='s')
-    systemArray[p.x][p.y-1].remove();
+    systemArray[p.x][p.y+1]->remove();
   if(p.m=='d')
-    systemArray[p.x+1][p.y].remove();
-  if((systemArray[p.x][p.y+1].gethere()=='P' || systemArray[p.x][p.y+1].gethere()=='1' || systemArray[p.x][p.y+1].gethere()=='2' || systemArray[p.x][p.y+1].gethere()=='3' || systemArray[p.x][p.y+1].gethere()=='4') || (systemArray[p.x-1][p.y].gethere()=='P' || systemArray[p.x-1][p.y].gethere()=='1' || systemArray[p.x-1][p.y].gethere()=='2' || systemArray[p.x-1][p.y].gethere()=='3' || systemArray[p.x-1][p.y].gethere()=='4') || (systemArray[p.x][p.y-1].gethere()=='P' || systemArray[p.x][p.y-1].gethere()=='1' || systemArray[p.x][p.y-1].gethere()=='2' || systemArray[p.x][p.y-1].gethere()=='3' || systemArray[p.x][p.y-1].gethere()=='4') || (systemArray[p.x+1][p.y].gethere()=='P' || systemArray[p.x+1][p.y].gethere()=='1' || systemArray[p.x+1][p.y].gethere()=='2' || systemArray[p.x+1][p.y].gethere()=='3' || systemArray[p.x+1][p.y].gethere()=='4'){
-      cout << "This is the menu for possible orbital first contact. your options are:";
-      cout << "\n";
-      cout << "1. visit planet.\n";
-      cout << "2. send message.\n";
-      cout << "3. recieve message.\n";
-      cout << "4. send probe.\n";
-      cout << "input 1 2 3 or 4 for your options\n";
-      char temp;
-      cin >> temp;
-      cin.ignore(30, '\n');
-      //placeholder for more
-    }  
+    systemArray[p.x-1][p.y]->remove();
+  for (int dx = -1; dx <= 1; dx++) {
+    for (int dy = -1; dy <= 1; dy++) {
+      if (dx == 0 && dy == 0)
+	continue;
+      int x = p.x + dx;
+      int y = p.y + dy;
+      if (x < 0 || x >= 30)
+	continue;
+      if (y < 0 || y >= 11)
+	continue;
+      for (const char *cp = "P1234"; *cp != '\0'; cp++) {
+	if (systemArray[x][y]->gethere() == *cp) {
+	  cout << "This is the menu for possible orbital first contact. your options are:";
+	  cout << "\n";
+	  cout << "1. visit planet.\n";
+	  cout << "2. send message.\n";
+	  cout << "3. recieve message.\n";
+	  cout << "4. send probe.\n";
+	  cout << "input 1 2 3 or 4 for your options\n";
+	  char temp;
+	  cin >> temp;
+	  cin.ignore(30, '\n');
+	  //placeholder for more
+	  return;
+	}
+      }
+    }
+  }
 }
 
 //starSystems display uses displayTop to print the whole top line of all tiles

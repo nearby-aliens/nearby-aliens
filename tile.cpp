@@ -56,7 +56,7 @@ char tile::gethere()
 
 void tile::remove()
 {
-  shipSpace='@';
+  shipSpace='_';
 }
 
 void tile::fillPlanet(int i, int j)
