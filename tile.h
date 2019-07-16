@@ -28,6 +28,8 @@ class tile
     void printTile();
     void move();
     void remove();
+    char gethere();
+    
 
   private:
     int xLocation;

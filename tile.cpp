@@ -48,6 +48,12 @@ void tile::move()
   shipSpace='Q';
 }
 
+//to make movement easier
+char tile::gethere()
+{
+  return whatIsHere;
+}
+
 void tile::remove()
 {
   shipSpace='@';
