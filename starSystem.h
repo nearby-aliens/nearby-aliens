@@ -15,6 +15,7 @@ class starSystem
     void makeSystem(int starName);
     void makeAlphaCentauriSystem();
     void printStarSystem();
+    void move(chara p);
   private:
     tile* systemArray[WIDTH][HEIGHT];
 };

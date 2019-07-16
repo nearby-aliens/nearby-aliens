@@ -48,6 +48,23 @@ tile::tile(int i, int j) //constuctor
   bRightEdge=' ';
 }
 
+void tile::move()
+{
+  shipSpace='Q';
+}
+
+//to make movement easier
+char tile::gethere()
+{
+  return whatIsHere;
+}
+
+void tile::remove()
+{
+  
+  shipSpace='_';
+  
+}
 
 
 //starSystems display uses displayTop to print the whole top line of all tiles

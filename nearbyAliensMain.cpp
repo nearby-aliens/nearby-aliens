@@ -8,6 +8,9 @@ using namespace std;
 int main()
 {
   int starChoice = 99;
+  chara player;
+  player.x=0;
+  player.y=0;
 
   cout << endl << endl << "Welcome to Nearby Aliens. You will search nearby star systems for inteligent life." <<endl <<endl;
   cout << "Begin your journey by choosing a star system." <<endl;
@@ -55,6 +58,38 @@ cout <<endl;
   cout << MAGENTA << "This is magenta" << endl << endl << endl;
 
   cout << RESET << "Bottom of practice display" <<endl;
+
+  cout <<endl;
+  char move;
+  while(1)
+  {
+    cout << "input wasd to move";
+    cin >> move;
+    cin.ignore(30, '\n');
+    if(move == 'w'){
+      player.y+=1;
+      player.m=move;
+      aStarSystem.move(player);
+    }
+    if(move == 'a'){
+      player.x-=1;
+      player.m=move;
+      aStarSystem.move(player);
+    }
+    if(move == 's'){
+      player.y-=1;
+      player.m=move;
+      aStarSystem.move(player);
+    }
+    if(move == 'd'){
+      player.x+=1;
+      player.m=move;
+      aStarSystem.move(player);
+    }
+    aStarSystem.printStarSystem();
+
+
+  }
   return 0;
 
 }
