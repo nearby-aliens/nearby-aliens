@@ -65,15 +65,21 @@ void starSystem::makeAlphaCentauriSystem()
   systemArray[2][9]->fillSunTile('r', 'y'); //A
   
 //alpha centauri B is organge a bit smaller than Sol.
+  systemArray[0][4]->fillSunTile('y', 'r'); //B yellow on red
   systemArray[0][3]->fillSunTile('y', 'r'); //B yellow on red
   systemArray[0][2]->fillSunTile('y', 'r'); //B yellow on red
   systemArray[0][1]->fillSunTile('y', 'r'); //B yellow on red
+  systemArray[1][3]->fillSunTile('y', 'r'); //B yellow on red
+  systemArray[1][2]->fillSunTile('y', 'r'); //B yellow on red
 
 //make planets. alpha centauri has no confirmed planets. 
 //wikipedia cites a source that estimates at 75% that terrestrial planets are there
 //with artistic license we put some here :)
   systemArray[7][2]->fillPlanet(5,2,'g', 'c'); // green on cyan small close in planet
-  systemArray[13][5]->fillPlanet(5,2,'b','m'); // blue on magenta small 3rd closest in planet
+  systemArray[13][5]->fillPlanet(5,2,'b','m'); // blue on magenta small 2nd closest in planet
+  systemArray[17][10]->fillPlanet(5,2,'b','m'); // blue on magenta small 3rd
+  systemArray[24][1]->fillPlanet(5,2,'b','m'); // blue on magenta small 4th closest in planet
+  systemArray[29][7]->fillPlanet(5,2,'b','m'); // blue on magenta small 5th closest in planet
 //eventually 3 small planets, 1 large and 2 medium size
 }
 

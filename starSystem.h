@@ -4,6 +4,9 @@
 #include "tile.h"
 #include "colors.h"
 
+static const int WIDTH = 30;
+static const int HEIGHT = 11;
+
 class starSystem
 {
   public:
@@ -13,5 +16,5 @@ class starSystem
     void makeAlphaCentauriSystem();
     void printStarSystem();
   private:
-    tile* systemArray[30][15];
+    tile* systemArray[WIDTH][HEIGHT];
 };

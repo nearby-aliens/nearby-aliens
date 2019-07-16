@@ -11,10 +11,10 @@ int main()
 
   cout << endl << endl << "Welcome to Nearby Aliens. You will search nearby star systems for inteligent life." <<endl <<endl;
   cout << "Begin your journey by choosing a star system." <<endl;
-  while(starChoice !=2 && starChoice !=3) //(starChoice<=0 || starChoice >=6)
+  while(starChoice !=2) //(starChoice<=0 || starChoice >=6)
   {
 cout <<endl;
-    cout << " Please enter your choice from 1 to 5:" <<endl <<endl;
+    cout << " Please enter your choice from 1 to 5:  (currently only choice 2 is implemented, choose 2!" <<endl <<endl;
     cout << "   1)Proxima Centauri (4.24 light years)" <<endl;
     cout << "   2)Alpha Centauri binary pair (4.37 light years)"<<endl;
     cout << "   3)Bernard's Star (5.96 light years)" <<endl;
@@ -50,7 +50,7 @@ cout <<endl;
   cout << RED << "        w for up" <<endl;
   cout << GREEN << "a for left        d for right" <<endl;
   cout << YELLOW << "       s for down" <<endl;
-  cout << CYAN << "This is cyan" << endl;
+  cout << CYAN << "*********************************************************************************************************************************************" << endl;
   cout << BLUE << "This is blue" << endl;
   cout << MAGENTA << "This is magenta" << endl << endl << endl;
 
@@ -58,4 +58,3 @@ cout <<endl;
   return 0;
 
 }
-
