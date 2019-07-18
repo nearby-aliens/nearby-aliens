@@ -45,16 +45,9 @@ cout <<endl;
 
   cout << endl;
   cout << endl;
-  cout << "Your cyro-cycle has completed and we have arrived!!" <<endl <<endl;
+  cout<<CYAN << "Your cyro-cycle has completed and we have arrived!!" <<endl <<endl;
   aStarSystem.printStarSystem();
   cout <<endl;
-
-  cout << endl;
-  cout << RED << "        w for up" <<endl;
-  cout << GREEN << "a for left        d for right" <<endl;
-  cout << YELLOW << "       s for down" <<endl;
-  cout << CYAN << "*********************************************************************************************************************************************" << endl;
-  cout << BLUE << "This is blue" << endl;
 
 cout << RESET << endl;
   cout <<endl;
