@@ -46,15 +46,6 @@ cout <<endl;
   aStarSystem.printStarSystem();
   cout <<endl;
 
-  cout << "Practice display" << endl;
-  cout << RED << "        w for up" <<endl;
-  cout << GREEN << "a for left        d for right" <<endl;
-  cout << YELLOW << "       s for down" <<endl;
-  cout << CYAN << "*********************************************************************************************************************************************" << endl;
-  cout << BLUE << "This is blue" << endl;
-  cout << MAGENTA << "This is magenta" << endl << endl << endl;
-
-  cout << RESET << "Bottom of practice display" <<endl;
   return 0;
 
 }
