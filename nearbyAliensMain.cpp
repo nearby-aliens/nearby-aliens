@@ -58,7 +58,7 @@ cout << RESET << endl;
     cin >> move;
     cin.ignore(30, '\n');
     if(move == 'w'){
-      if(player.y>=HEIGHT)
+      if(player.y>=HEIGHT-1)
 	cout<<"cant go that high\n";
       else
 	player.y+=1;
@@ -82,7 +82,7 @@ cout << RESET << endl;
       aStarSystem.move(player);
     }
     if(move == 'd'){
-      if(player.y>=WIDTH)
+      if(player.x>=WIDTH-1)
         cout<<"cant go that right\n";
       else
 	player.x+=1;
