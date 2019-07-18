@@ -39,15 +39,13 @@ void starSystem::printStarSystem()
     cout << endl;
   }
 
-  cout << "Practice display" << endl;
   cout << RED << "        w for up" <<endl;
   cout << GREEN << "a for left        d for right" <<endl;
   cout << YELLOW << "       s for down" <<endl;
   cout << CYAN << "*********************************************************************************************************************************************" << endl;
-  cout << BLUE << "This is blue" << endl;
-  cout << MAGENTA << "This is magenta" << endl << endl << endl;
+cout << "practice pushing upstream" << endl;
+  cout << RESET << endl;
 
-  cout << RESET << "Bottom of practice display" <<endl;
 }
 
 //this function takes an integer that represents which star system is being created
