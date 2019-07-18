@@ -20,17 +20,20 @@ starSystem::starSystem()//initialize array. i columns are across the screen star
   }
 }
 
-void starSystem::move(chara p)
+void starSystem::move(character player)
 {
-  systemArray[p.x][p.y]->move();
-  if(p.m=='w')
-    systemArray[p.x][p.y-1]->remove();
-  if(p.m=='a')
-    systemArray[p.x+1][p.y]->remove();
-  if(p.m=='s')
-    systemArray[p.x][p.y+1]->remove();
-  if(p.m=='d')
-    systemArray[p.x-1][p.y]->remove();
+  systemArray[player.x][player.y]->move();
+  if(player.input=='w')
+    systemArray[player.x][player.y-1]->remove();
+  if(player.input=='a')
+    systemArray[player.x+1][player.y]->remove();
+  if(player.input=='s')
+    systemArray[player.x][player.y+1]->remove();
+  if(player.input=='d')
+    systemArray[player.x-1][player.y]->remove();
+}
+
+//Use below for bringing up orbit menu
   /*
   for (int dx = -1; dx <= 1; dx++) {
     for (int dy = -1; dy <= 1; dy++) {

@@ -9,8 +9,6 @@ int main()
 {
   int starChoice = 99;
   chara player;
-  player.x=0;
-  player.y=0;
 
   cout << endl << endl << BLUE <<"Welcome to Nearby Aliens. You will search nearby star systems for inteligent life." <<endl <<endl;
   cout << MAGENTA << "Begin your journey by choosing a star system." <<endl;
@@ -49,9 +47,10 @@ cout <<endl;
   aStarSystem.printStarSystem();
   cout <<endl;
 
-cout << RESET << endl;
+  cout << RESET << endl;
   cout <<endl;
-  char move;
+ 
+ char move;
   while(1)
   {
     cout << "input wasd to move";

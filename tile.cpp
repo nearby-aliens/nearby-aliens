@@ -61,11 +61,16 @@ char tile::gethere()
 
 void tile::remove()
 {
-  
-  shipSpace='_';
-  
-}
+  if (whatIsHere==p)
+  {
+    shipSpace = '@';
+  }
+  else
+  {  
+    shipSpace='_';
 
+  }
+}
 
 //starSystems display uses displayTop to print the whole top line of all tiles
 // being displayed (starting at top so j index starts at 10 and is decremented)
@@ -83,7 +88,6 @@ void tile::displayTop()
     {
       cout << YELLOWonRED << topLeft << topLCenter  << topRCenter << tRightEdge <<RESET;
     }
-
   }
   else
   {
