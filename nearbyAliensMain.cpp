@@ -67,22 +67,34 @@ cout <<endl;
     cin >> move;
     cin.ignore(30, '\n');
     if(move == 'w'){
-      player.y+=1;
+      if(player.y>=HEIGHT)
+	cout<<"cant go that high\n";
+      else
+	player.y+=1;
       player.m=move;
       aStarSystem.move(player);
     }
     if(move == 'a'){
-      player.x-=1;
+      if(player.x<=0)
+	 cout<<"cant go that left\n";
+      else
+	player.x-=1;
       player.m=move;
       aStarSystem.move(player);
     }
     if(move == 's'){
-      player.y-=1;
+      if(player.y<=0)
+         cout<<"cant go that low\n";
+      else
+	player.y-=1;
       player.m=move;
       aStarSystem.move(player);
     }
     if(move == 'd'){
-      player.x+=1;
+      if(player.y>=WIDTH)
+        cout<<"cant go that right\n";
+      else
+	player.x+=1;
       player.m=move;
       aStarSystem.move(player);
     }
