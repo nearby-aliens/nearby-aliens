@@ -81,19 +81,6 @@ void starSystem::printStarSystem()
     cout << endl;
   }
 
-<<<<<<< HEAD
-  cout <<endl; 
-  cout << RED << "        w for up" <<endl;
-  cout << GREEN << "a for left        d for right" <<endl;
-  cout << YELLOW << "       s for down" <<endl;
-  cout << CYAN << "*******************************************************************************************************" <<endl;
-  cout << BLUE << "You are now in orbit around the innermost planet" << endl;
-  cout << BLUE << "What do you want to do now!" << endl << endl << endl;
-
-  cout << CYAN << "*******************************************************************************************************" <<endl;
-
-cout<< RESET ;
-=======
   cout << RED << "        w for up" <<endl;
   cout << GREEN << "a for left        d for right" <<endl;
   cout << YELLOW << "       s for down" <<endl;
@@ -101,7 +88,6 @@ cout<< RESET ;
 cout << "practice pushing upstream" << endl;
   cout << RESET << endl;
 
->>>>>>> orbitMenu
 }
 
 //this function takes an integer that represents which star system is being created
