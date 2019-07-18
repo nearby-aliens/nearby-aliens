@@ -45,6 +45,7 @@ cout <<endl;
   cout << "Your cyro-cycle has completed and we have arrived!!" <<endl <<endl;
   aStarSystem.printStarSystem();
   cout <<endl;
+cout <<endl;
 
   return 0;
 
