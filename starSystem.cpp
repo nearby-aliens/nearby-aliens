@@ -20,48 +20,95 @@ starSystem::starSystem()//initialize array. i columns are across the screen star
   }
 }
 
-void starSystem::move(chara p)
+void starSystem::playLevel()
 {
-  systemArray[p.x][p.y]->move();
-  if(p.m=='w')
-    systemArray[p.x][p.y-1]->remove();
-  if(p.m=='a')
-    systemArray[p.x+1][p.y]->remove();
-  if(p.m=='s')
-    systemArray[p.x][p.y+1]->remove();
-  if(p.m=='d')
-    systemArray[p.x-1][p.y]->remove();
-  /*
-  for (int dx = -1; dx <= 1; dx++) {
-    for (int dy = -1; dy <= 1; dy++) {
-      if (dx == 0 && dy == 0)
-	continue;
-      int x = p.x + dx;
-      int y = p.y + dy;
-      if (x < 0 || x >= 30)
-	continue;
-      if (y < 0 || y >= 11)
-	continue;
-      for (const char *cp = "P1234"; *cp != '\0'; cp++) {
-	if (systemArray[x][y]->gethere() == *cp) {
-	  cout << "This is the menu for possible orbital first contact. your options are:";
-	  cout << "\n";
-	  cout << "1. visit planet.\n";
-	  cout << "2. send message.\n";
-	  cout << "3. recieve message.\n";
-	  cout << "4. send probe.\n";
-	  cout << "input 1 2 3 or 4 for your options\n";
-	  char temp;
-	  cin >> temp;
-	  cin.ignore(30, '\n');
-	  //placeholder for more
-	  return;
-	}
-      }
+  chara player;
+  char input = 'z';  //variable for players choice input
+
+  while(input != 'e')
+  { 
+    if(input=='w' || input=='a' || input =='s'|| input == 'd') 
+      remove(player);
+    cout << "Please input your choice to move (wasd) or 'e' to exit." <<endl;
+    cin >> input;
+    cin.ignore(30, '\n');
+    if(input  == 'w'){
+      if(player.y>=HEIGHT-1)
+        cout<<"cant go that high\n";
+      else
+        player.y+=1;
+      player.m=input;
+      move(player);
     }
+    if(input == 'a'){
+      if(player.x<=0)
+        cout<<"cant go that left\n";
+      else
+        player.x-=1;
+      player.m=input;
+      move(player);
+    }
+    if(input == 's'){
+      if(player.y<=0)
+        cout<<"cant go that low\n";
+      else
+        player.y-=1;
+      player.m=input;
+      move(player);
+    }
+    if(input == 'd'){
+      if(player.x>=WIDTH-1)
+        cout<<"cant go that right\n";
+      else
+        player.x+=1;
+      player.m=input;
+      move(player);
+    }
+    printStarSystem();
   }
-  */
 }
+
+void starSystem::move(chara player)
+{
+  systemArray[player.x][player.y]->move();
+}
+
+void starSystem::remove(chara player)
+{
+  systemArray[player.x][player.y]->remove();
+}
+
+//Use below for bringing up orbit menu
+/*
+   for (int dx = -1; dx <= 1; dx++) {
+   for (int dy = -1; dy <= 1; dy++) {
+   if (dx == 0 && dy == 0)
+   continue;
+   int x = p.x + dx;
+   int y = p.y + dy;
+   if (x < 0 || x >= 30)
+   continue;
+   if (y < 0 || y >= 11)
+   continue;
+   for (const char *cp = "P1234"; *cp != '\0'; cp++) {
+   if (systemArray[x][y]->gethere() == *cp) {
+   cout << "This is the menu for possible orbital first contact. your options are:";
+   cout << "\n";
+   cout << "1. visit planet.\n";
+   cout << "2. send message.\n";
+   cout << "3. recieve message.\n";
+   cout << "4. send probe.\n";
+   cout << "input 1 2 3 or 4 for your options\n";
+   char temp;
+   cin >> temp;
+   cin.ignore(30, '\n');
+//placeholder for more
+return;
+}
+}
+}
+}
+ */
 
 //starSystems display uses displayTop to print the whole top line of all tiles
 // being displayed (starting at top so j index starts at 10 and is decremented)
@@ -81,17 +128,12 @@ void starSystem::printStarSystem()
     cout << endl;
   }
 
-  cout <<endl; 
   cout << RED << "        w for up" <<endl;
   cout << GREEN << "a for left        d for right" <<endl;
   cout << YELLOW << "       s for down" <<endl;
-  cout << CYAN << "*******************************************************************************************************" <<endl;
-  cout << BLUE << "You are now in orbit around the innermost planet" << endl;
-  cout << BLUE << "What do you want to do now!" << endl << endl << endl;
+  cout << CYAN << "`**********************************************************************************************************" << endl;
+  cout << RESET << endl;
 
-  cout << CYAN << "*******************************************************************************************************" <<endl;
-
-cout<< RESET ;
 }
 
 //this function takes an integer that represents which star system is being created
@@ -106,8 +148,8 @@ void starSystem::makeSystem(int level)
 
 void starSystem::makeAlphaCentauriSystem()
 {
-//make Suns - binary suns for alpha Centauri
-//alpha centauri A is a yellow sun a bit bigger than Sol. 
+  //make Suns - binary suns for alpha Centauri
+  //alpha centauri A is a yellow sun a bit bigger than Sol. 
   systemArray[0][10]->fillSunTile('r', 'y'); //A
   systemArray[0][9]->fillSunTile('r', 'y'); //A
   systemArray[0][8]->fillSunTile('r', 'y'); //A
@@ -117,8 +159,8 @@ void starSystem::makeAlphaCentauriSystem()
   systemArray[1][8]->fillSunTile('r', 'y'); //A
   systemArray[2][10]->fillSunTile('r', 'y'); //A
   systemArray[2][9]->fillSunTile('r', 'y'); //A
-  
-//alpha centauri B is organge a bit smaller than Sol.
+
+  //alpha centauri B is organge a bit smaller than Sol.
   systemArray[0][4]->fillSunTile('y', 'r'); //B yellow on red
   systemArray[0][3]->fillSunTile('y', 'r'); //B yellow on red
   systemArray[0][2]->fillSunTile('y', 'r'); //B yellow on red
@@ -126,15 +168,15 @@ void starSystem::makeAlphaCentauriSystem()
   systemArray[1][3]->fillSunTile('y', 'r'); //B yellow on red
   systemArray[1][2]->fillSunTile('y', 'r'); //B yellow on red
 
-//make planets. alpha centauri has no confirmed planets. 
-//wikipedia cites a source that estimates at 75% that terrestrial planets are there
-//with artistic license we put some here :)
+  //make planets. alpha centauri has no confirmed planets. 
+  //wikipedia cites a source that estimates at 75% that terrestrial planets are there
+  //with artistic license we put some here :)
   systemArray[7][2]->fillPlanet(5,2,'g', 'c'); // green on cyan small close in planet
   systemArray[13][5]->fillPlanet(5,2,'b','m'); // blue on magenta small 2nd closest in planet
   systemArray[17][10]->fillPlanet(5,2,'b','m'); // blue on magenta small 3rd
   systemArray[24][1]->fillPlanet(5,2,'b','m'); // blue on magenta small 4th closest in planet
   systemArray[29][7]->fillPlanet(5,2,'b','m'); // blue on magenta small 5th closest in planet
-//eventually 3 small planets, 1 large and 2 medium size
+  //eventually 3 small planets, 1 large and 2 medium size
 }
 
 
