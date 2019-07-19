@@ -6,11 +6,9 @@
 
 using namespace std;
 
-character::character()
+chara::chara()
 {
-x = 29;
-y = 10;
-input = 'z';
-
-
+  x = 29;
+  y = 10;
+  m = 'z';
 }

@@ -6,11 +6,11 @@
 #include <fstream>
 using namespace std;
 
-class character
+class chara
 {
  public:
- character(); 
+ chara(); 
   int x;
   int y;
-  char input; //input variable for movement
+  char m; //input variable for movement
 };
