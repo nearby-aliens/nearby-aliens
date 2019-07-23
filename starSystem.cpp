@@ -32,9 +32,10 @@ void starSystem::playLevel()
     cout << "Please input your choice to move (wasd) or 'e' to exit." <<endl;
     cin >> input;
     cin.ignore(30, '\n');
+cerr << "input is " << input <<endl;
     if(input  == 'w'){
       if(player.y>=HEIGHT-1)
-        cout<<"cant go that high\n";
+        cout<<"You are at the top of the display and can not go higher!\n";
       else
         player.y+=1;
       player.m=input;
@@ -42,7 +43,7 @@ void starSystem::playLevel()
     }
     if(input == 'a'){
       if(player.x<=0)
-        cout<<"cant go that left\n";
+        cout<<"You are very near the star and at the far left edge of your display. Yon can not go any more to the left!\n";
       else
         player.x-=1;
       player.m=input;
@@ -50,7 +51,7 @@ void starSystem::playLevel()
     }
     if(input == 's'){
       if(player.y<=0)
-        cout<<"cant go that low\n";
+        cout<<"You are at the bottom of the display. You can not go lower!\n";
       else
         player.y-=1;
       player.m=input;
@@ -58,14 +59,14 @@ void starSystem::playLevel()
     }
     if(input == 'd'){
       if(player.x>=WIDTH-1)
-        cout<<"cant go that right\n";
+        cout<<"You are out at the far edge of the star system. You can not go any more to the right!\n";
       else
         player.x+=1;
       player.m=input;
       move(player);
     }
     printStarSystem();
-  }
+  }//end of while loop - if input is 'e' exit while loop back to main menu
 }
 
 void starSystem::move(chara player)
@@ -78,37 +79,6 @@ void starSystem::remove(chara player)
   systemArray[player.x][player.y]->remove();
 }
 
-//Use below for bringing up orbit menu
-/*
-   for (int dx = -1; dx <= 1; dx++) {
-   for (int dy = -1; dy <= 1; dy++) {
-   if (dx == 0 && dy == 0)
-   continue;
-   int x = p.x + dx;
-   int y = p.y + dy;
-   if (x < 0 || x >= 30)
-   continue;
-   if (y < 0 || y >= 11)
-   continue;
-   for (const char *cp = "P1234"; *cp != '\0'; cp++) {
-   if (systemArray[x][y]->gethere() == *cp) {
-   cout << "This is the menu for possible orbital first contact. your options are:";
-   cout << "\n";
-   cout << "1. visit planet.\n";
-   cout << "2. send message.\n";
-   cout << "3. recieve message.\n";
-   cout << "4. send probe.\n";
-   cout << "input 1 2 3 or 4 for your options\n";
-   char temp;
-   cin >> temp;
-   cin.ignore(30, '\n');
-//placeholder for more
-return;
-}
-}
-}
-}
- */
 
 //starSystems display uses displayTop to print the whole top line of all tiles
 // being displayed (starting at top so j index starts at 10 and is decremented)
@@ -172,12 +142,22 @@ void starSystem::makeAlphaCentauriSystem()
   //wikipedia cites a source that estimates at 75% that terrestrial planets are there
   //with artistic license we put some here :)
   systemArray[7][2]->fillPlanet(5,2,'g', 'c'); // green on cyan small close in planet
+  markOrbitTiles(7, 2, 'p'); //this is a function of the starSystem class that marks spaces adjacent to the added planet
   systemArray[13][5]->fillPlanet(5,2,'b','m'); // blue on magenta small 2nd closest in planet
+  markOrbitTiles(13, 5, 'p'); //this is a function of the starSystem class that marks spaces adjacent to the added planet
   systemArray[17][10]->fillPlanet(5,2,'b','m'); // blue on magenta small 3rd
+  markOrbitTiles(17, 10, 'p'); //this is a function of the starSystem class that marks spaces adjacent to the added planet
   systemArray[24][1]->fillPlanet(5,2,'b','m'); // blue on magenta small 4th closest in planet
+  markOrbitTiles(24,1, 'p'); //this is a function of the starSystem class that marks spaces adjacent to the added planet
   systemArray[29][7]->fillPlanet(5,2,'b','m'); // blue on magenta small 5th closest in planet
-  //eventually 3 small planets, 1 large and 2 medium size
+  markOrbitTiles(29, 7, 'p'); //this is a function of the starSystem class that marks spaces adjacent to the added planet
 }
 
 
+//this is a function of the starSystem class that marks spaces adjacent to the added planet
+void starSystem::markOrbitTiles(int x, int y, char planetCode)
+{
+systemArray[x-1][y]->whatIsHere = 'o';
 
+
+}

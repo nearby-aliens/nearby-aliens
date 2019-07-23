@@ -22,7 +22,7 @@ tile::tile() //constuctor
   topRCenter=' ';
   tRightEdge=' ';
   bottomLeft=' ';
-  shipSpace='-'; // default _ or Q for ship
+  shipSpace='-'; // default - or Q for ship
   bottomRCenter=' ';
   bRightEdge=' ';
 }
@@ -44,7 +44,7 @@ tile::tile(int i, int j) //constuctor
   tRightEdge=' ';
   bottomLeft=' ';
   if(i == 29 && j == 10) shipSpace ='Q';
-  else shipSpace='-'; // default _ or Q for ship
+  else shipSpace='-'; // default - or Q for ship
   bottomRCenter=' ';
   bRightEdge=' ';
 }
@@ -158,6 +158,7 @@ void tile::fillPlanet(int i, int j, char aColor, char anotherColor)
   bottomRCenter='@';
   bRightEdge=' ';
 }
+
 
 void tile::fillSunTile( char aColor, char anotherColor)
 {
