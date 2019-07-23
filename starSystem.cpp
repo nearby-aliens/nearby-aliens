@@ -23,10 +23,24 @@ starSystem::starSystem()//initialize array. i columns are across the screen star
 void starSystem::playLevel()
 {
   chara player;
+  bool orbitCheck = 0; //1 for true -ship is in orbit
   char input = 'z';  //variable for players choice input
 
-  while(input != 'e')
-  { 
+  //this while loop is the whole level. One function called -calls the orbit sub-menu
+  while(input != 'e')  
+  {
+
+    int x = player.x;
+    int y = player.y;
+    cout << "hello" << flush; //clear screen - \034c 
+    printStarSystem();  //print map first so  all messages show below map
+    if (systemArray[x][y]->whatIsHere = 'o')
+      orbitCheck = 1;
+    if(orbitCheck) //if in orbit, call orbit menu
+    {
+      
+
+    } 
     if(input=='w' || input=='a' || input =='s'|| input == 'd') 
       remove(player);
     cout << "Please input your choice to move (wasd) or 'e' to exit." <<endl;
@@ -65,7 +79,6 @@ void starSystem::playLevel()
       player.m=input;
       move(player);
     }
-    printStarSystem();
   }//end of while loop - if input is 'e' exit while loop back to main menu
 }
 
