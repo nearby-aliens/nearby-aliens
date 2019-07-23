@@ -32,7 +32,7 @@ void starSystem::playLevel()
     cout << "Please input your choice to move (wasd) or 'e' to exit." <<endl;
     cin >> input;
     cin.ignore(30, '\n');
-cerr << "input is " << input <<endl;
+    cerr << "input is " << input <<endl;
     if(input  == 'w'){
       if(player.y>=HEIGHT-1)
         cout<<"You are at the top of the display and can not go higher!\n";
@@ -157,7 +157,13 @@ void starSystem::makeAlphaCentauriSystem()
 //this is a function of the starSystem class that marks spaces adjacent to the added planet
 void starSystem::markOrbitTiles(int x, int y, char planetCode)
 {
-systemArray[x-1][y]->whatIsHere = 'o';
-
+  if(x>0)
+    systemArray[x-1][y]->whatIsHere = 'o';
+  if(y>0)
+    systemArray[x][y-1]->whatIsHere = 'o';
+  if(x<WIDTH-1)
+    systemArray[x+1][y]->whatIsHere = 'o';
+  if(y<HEIGHT-1)
+    systemArray[x][y+1]->whatIsHere = 'o';
 
 }

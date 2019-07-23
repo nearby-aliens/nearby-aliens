@@ -11,7 +11,7 @@ tile::tile() //constuctor
   xLocation = 0;
   yLocation = 0;
   lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
-  whatIsHere = '.'; //default ., or s for small planet, or 1,2,3,4 for big planet parts, or S for sun
+  whatIsHere = '.'; //default ., p=planet, o=orbit, 1,2,...9=part of a planet, s=star
   partialArt = ' ';
   color1 = 'a';
   color2 = 'a';
@@ -33,7 +33,7 @@ tile::tile(int i, int j) //constuctor
   xLocation = i;
   yLocation = j;
   lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
-  whatIsHere = '.'; //default ., or P for small planet, or 1,2,3,4 for big planet parts, or S for sun
+  whatIsHere = '.'; //default ., p=planet, o=orbit, 1,2,...9=part of a planet, s=star
   partialArt = ' ';//default ' ' - 832 means left justified 3on top display line, 2 on bottom line. 932 would mean right justified 
   color1 = 'a';
   color2 = 'a';
