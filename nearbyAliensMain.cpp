@@ -11,6 +11,7 @@ int main()
   chara player;
   player.x=0;
   player.y=0;
+  player.fuel=20;
 
   cout << endl << endl << BLUE <<"Welcome to Nearby Aliens. You will search nearby star systems for inteligent life." <<endl <<endl;
   cout << MAGENTA << "Begin your journey by choosing a star system." <<endl;
@@ -54,7 +55,13 @@ cout << RESET << endl;
   char move;
   while(1)
   {
+    //fuel handling
+    if(player.fuel<=0){
+      cout<<"ran out of fuel";
+      break;
+    }
     cout << "input wasd to move";
+    cout << " fuel "<<player.fuel;
     cin >> move;
     cin.ignore(30, '\n');
     if(move == 'w'){
@@ -90,6 +97,10 @@ cout << RESET << endl;
       aStarSystem.move(player);
     }
     aStarSystem.printStarSystem();
+
+    //fuel
+    if(move == 'w' || move == 'a' || move == 's' || move == 'd')
+      player.fuel=player.fuel-1;
 
 
   }

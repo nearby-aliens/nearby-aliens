@@ -25,6 +25,9 @@ tile::tile() //constuctor
   shipSpace='_'; // default _ or Q for ship
   bottomRCenter=' ';
   bRightEdge=' ';
+  //object
+  //object_here.name='null';
+  mine_fuel=0;
 }
 
 
@@ -51,6 +54,11 @@ tile::tile(int i, int j) //constuctor
 void tile::move()
 {
   shipSpace='Q';
+}
+
+int tile::mine()
+{
+  return mine_fuel;
 }
 
 //to make movement easier

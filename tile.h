@@ -10,6 +10,12 @@
 #include <fstream>
 using namespace std;
 
+//class item
+//{
+  //char *name;
+  //int q;
+  //};
+
 class chara
 {
  public:
@@ -17,6 +23,9 @@ class chara
   int x;
   int y;
   char m;
+  int fuel;
+
+  //item *list;
 };
 
 class tile
@@ -32,6 +41,8 @@ class tile
     void move();
     void remove();
     char gethere();
+    //get fuel
+    int mine();
     
 
   private:
@@ -51,4 +62,8 @@ int partialArt; // 0 default. 832 left justified 3 on top row, 2 bottow row. 932
     char shipSpace;  //bottom Lcenter space - should be '-' unless ship is there. then ship icon Q 
     char bottomRCenter;
     char bRightEdge;
+
+    //objects on a tile
+    //item object_here;
+    int mine_fuel;
 };
