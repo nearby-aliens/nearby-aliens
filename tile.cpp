@@ -56,6 +56,11 @@ void tile::move()
   shipSpace='Q';
 }
 
+int tile::mine()
+{
+  return mine_fuel;
+}
+
 //to make movement easier
 char tile::gethere()
 {

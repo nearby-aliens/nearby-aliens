@@ -99,7 +99,8 @@ cout << RESET << endl;
     aStarSystem.printStarSystem();
 
     //fuel
-    player.fuel=player.fuel-1;
+    if(move == 'w' || move == 'a' || move == 's' || move == 'd')
+      player.fuel=player.fuel-1;
 
 
   }

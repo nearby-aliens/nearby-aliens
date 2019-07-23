@@ -41,6 +41,8 @@ class tile
     void move();
     void remove();
     char gethere();
+    //get fuel
+    int mine();
     
 
   private:
