@@ -25,6 +25,9 @@ tile::tile() //constuctor
   shipSpace='_'; // default _ or Q for ship
   bottomRCenter=' ';
   bRightEdge=' ';
+  //object
+  //object_here.name='null';
+  mine_fuel=0;
 }
 
 
