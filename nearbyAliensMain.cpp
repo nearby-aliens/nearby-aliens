@@ -26,7 +26,7 @@ int main()
       cout <<BLUE<< " Enter the number of your choice: " << RESET <<endl;
       cin >> starChoice;
       cin.ignore(30, '\n');
-      if(starChoice !=2 && starChoice !=9)
+      if(starChoice !=2 )
       {
         cout << "Currently, only choice two is implemented. Please choose choice 2 to play. (Or go to our github and implement one of the other choices!)" <<endl;
       }
@@ -36,12 +36,6 @@ int main()
 
 
 
-    if(starChoice == 9)
-    {
-      cout << GREEN << "You have returned home to Sol and Earth!" << RESET<<endl;
-      cout << GREEN << "Thanks for playing." << RESET << endl << endl << endl;
-      return 0;
-    } 
     starSystem aStarSystem; //new starSytem object
     // choice 2
     if(starChoice==2)
@@ -52,12 +46,15 @@ int main()
       cout<<CYAN << "Your cyro-cycle has completed and we have arrived!!"<<RESET <<endl <<endl;
       aStarSystem.printStarSystem();
       aStarSystem.playLevel();
+      starChoice=8;  //resets starSystem variable value, so will enter main menu after exiting level
     }
-    if (starChoice !=9) starChoice=8; //tempfix so will give user another choice 
     //here if starChoice is 9, it will not do the while loop anymore and the game will end
   }
   cout <<endl;
-  cout << "Thanks for playing!" <<endl;
+  
+      cout << GREEN << "You have returned home to Sol and Earth!" << RESET<<endl;
+      cout << GREEN << "Thanks for playing." << RESET << endl << endl << endl;
+
   cout <<endl<<endl<<endl;
   return 0;
 }

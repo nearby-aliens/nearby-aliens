@@ -11,7 +11,7 @@ tile::tile() //constuctor
   xLocation = 0;
   yLocation = 0;
   lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
-  whatIsHere = '.'; //default ., or s for small planet, or 1,2,3,4 for big planet parts, or S for sun
+  whatIsHere = '.'; //default ., p=planet, o=orbit, 1,2,...9=part of a planet, s=star
   partialArt = ' ';
   color1 = 'a';
   color2 = 'a';
@@ -22,7 +22,7 @@ tile::tile() //constuctor
   topRCenter=' ';
   tRightEdge=' ';
   bottomLeft=' ';
-  shipSpace='-'; // default _ or Q for ship
+  shipSpace='-'; // default - or Q for ship
   bottomRCenter=' ';
   bRightEdge=' ';
 }
@@ -33,7 +33,7 @@ tile::tile(int i, int j) //constuctor
   xLocation = i;
   yLocation = j;
   lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
-  whatIsHere = '.'; //default ., or P for small planet, or 1,2,3,4 for big planet parts, or S for sun
+  whatIsHere = '.'; //default ., p=planet, o=orbit, 1,2,...9=part of a planet, s=star
   partialArt = ' ';//default ' ' - 832 means left justified 3on top display line, 2 on bottom line. 932 would mean right justified 
   color1 = 'a';
   color2 = 'a';
@@ -44,7 +44,7 @@ tile::tile(int i, int j) //constuctor
   tRightEdge=' ';
   bottomLeft=' ';
   if(i == 29 && j == 10) shipSpace ='Q';
-  else shipSpace='-'; // default _ or Q for ship
+  else shipSpace='-'; // default - or Q for ship
   bottomRCenter=' ';
   bRightEdge=' ';
 }
@@ -158,6 +158,7 @@ void tile::fillPlanet(int i, int j, char aColor, char anotherColor)
   bottomRCenter='@';
   bRightEdge=' ';
 }
+
 
 void tile::fillSunTile( char aColor, char anotherColor)
 {
