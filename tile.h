@@ -8,16 +8,11 @@
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
+
+#include "chara.h"
+
 using namespace std;
 
-class chara
-{
- public:
-  
-  int x;
-  int y;
-  char m;
-};
 
 class tile
 {
@@ -32,14 +27,14 @@ class tile
     void move();
     void remove();
     char gethere();
+    int mine();
     
 
-  private:
     int xLocation;
     int yLocation;
-    char whatIsHere; //top left location .for empty space s for small planet. 1,2,3,4 for part of big planet. S for sun
+    char whatIsHere; //top left location .for empty space, p=planet, o=orbit. 1,2,3,4,5,6,7,8,9 = part big planet. s=sun
     char lifeType; //default N none, can be I inteligent, D not inteligent but dangerous, S safe and not inteligent
-int partialArt; // 0 default. 832 left justified 3 on top row, 2 bottow row. 932 same but right justified
+    int partialArt; // 0 default. 832 8 for left justified 3 on top row, 2 bottow row. 932 same but right justified
     char color1;
     char color2;
 
@@ -51,4 +46,8 @@ int partialArt; // 0 default. 832 left justified 3 on top row, 2 bottow row. 932
     char shipSpace;  //bottom Lcenter space - should be '-' unless ship is there. then ship icon Q 
     char bottomRCenter;
     char bRightEdge;
+
+    //objects on a tile
+    //item object_here;
+    int mine_fuel;
 };
