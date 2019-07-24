@@ -8,6 +8,10 @@ using namespace std;
 int main()
 {
   int starChoice = 8;
+  chara player;
+  player.x=0;
+  player.y=0;
+  player.fuel=20;
 
   cout << endl << endl << BLUE <<"Welcome to Nearby Aliens. You will search nearby star systems for inteligent life." <<endl <<endl;
   while(starChoice != 9)
@@ -55,6 +59,7 @@ int main()
       cout << GREEN << "You have returned home to Sol and Earth!" << RESET<<endl;
       cout << GREEN << "Thanks for playing." << RESET << endl << endl << endl;
 
-  cout <<endl<<endl<<endl;
+cout << RESET << endl;
+  cout <<endl;
   return 0;
 }

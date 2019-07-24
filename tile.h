@@ -14,6 +14,17 @@
 using namespace std;
 
 
+class chara
+{
+ public:
+  
+  int x;
+  int y;
+  char m;
+  int fuel;
+
+};
+
 class tile
 {
   public:
@@ -27,6 +38,8 @@ class tile
     void move();
     void remove();
     char gethere();
+    int mine();
+    
 
     int xLocation;
     int yLocation;
@@ -44,4 +57,8 @@ class tile
     char shipSpace;  //bottom Lcenter space - should be '-' unless ship is there. then ship icon Q 
     char bottomRCenter;
     char bRightEdge;
+
+    //objects on a tile
+    //item object_here;
+    int mine_fuel;
 };
