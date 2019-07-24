@@ -32,7 +32,6 @@ void starSystem::playLevel()
 
     int x = player.x;
     int y = player.y;
-    cout << "hello" << flush; //clear screen - \034c 
     printStarSystem();  //print map first so  all messages show below map
     if (systemArray[x][y]->whatIsHere = 'o')
       orbitCheck = 1;
