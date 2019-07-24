@@ -5,6 +5,7 @@
 using namespace std;
 
 #include "starSystem.h"
+#include "minigames.h"
 int main()
 {
   int starChoice = 8;
@@ -12,6 +13,12 @@ int main()
   player.x=0;
   player.y=0;
   player.fuel=20;
+
+  
+  //TESTING MINIGAME IGNORE
+  //char test[] = {'h','e','l','l','o'};
+  //bool result=hangman(test);
+
 
   cout << endl << endl << BLUE <<"Welcome to Nearby Aliens. You will search nearby star systems for inteligent life." <<endl <<endl;
   while(starChoice != 9)

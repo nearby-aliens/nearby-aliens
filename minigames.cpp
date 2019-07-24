@@ -1,9 +1,10 @@
+#include "tile.h"
 bool hangman(char *answer_word)
 {
   //inititalize an ascii image
   char display_list[15][15];
-  for(int i=0;i<15;i++;){
-    for(int j=0;j<15;j++;){
+  for(int i=0;i<15;i++){
+    for(int j=0;j<15;j++){
       display_list[i][j]=' ';
     }
   }
@@ -20,17 +21,17 @@ bool hangman(char *answer_word)
 
   //while for game
   //either too many wrong words or answer matches current string
-  while(wrong_count<6 || strcmp(display_string,answer_word)==0){
+  while(wrong_count<6 && strcmp(display_string,answer_word)!=0){
     //display for hangman body
-    for(int i=0;i<15;i++;){
-      for(int j=0;j<15;j++;){
+    for(int i=0;i<15;i++){
+      for(int j=0;j<15;j++){
         cout<<display_list[i][j];
       }
       cout<<"\n";
     }
     cout<<"\n";
     //display for empty words
-    for(int i=0;i<15;i++;){
+    for(int i=0;i<15;i++){
       cout<<display_string[i];
     }
     cout<<"\n";
@@ -40,15 +41,15 @@ bool hangman(char *answer_word)
     cin.ignore(30, '\n');
     for(int i=0;i<length;i++){
       if(input_letter==answer_word[i]){
-        match++;
+        match_letter_count++;
         //for displaying correct letter positions
         display_string[i]=answer_word[i];
       }
     }
     //check for wrong answer
-    if(match<0)
+    if(match_letter_count<=0)
       wrong_count++;
-    match=0;
+    match_letter_count=0;
 
 
     //change value based on wrongcount
@@ -71,4 +72,8 @@ bool hangman(char *answer_word)
 
 
   }
+  if(strcmp(display_string,answer_word)==0)
+    return true;
+  else
+    return false;
 }
