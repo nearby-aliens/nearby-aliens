@@ -78,6 +78,10 @@ void starSystem::playLevel()
       player.m=input;
       move(player);
     }
+    //fuel
+    if(input == 'w'|| input == 'a' || input  == 's'||input == 'd')
+      player.fuel = player.fuel-1;
+
   }//end of while loop - if input is 'e' exit while loop back to main menu
 }
 
