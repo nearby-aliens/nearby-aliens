@@ -32,7 +32,7 @@ void starSystem::playLevel()
   while(input != 'e')  
   {
     if(player.fuel<=0){
-      cout<<"fuel ran out game over";
+      cout<<"fuel ran out game over\n";
       break;
     }
 
