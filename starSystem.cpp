@@ -180,6 +180,6 @@ void starSystem::markOrbitTiles(int x, int y, char planetCode)
   if(x<WIDTH-1)
     systemArray[x+1][y]->whatIsHere = 'o';
   if(y<HEIGHT-1)
-    systemArray[x][y+1]->whatIsHere = 'o'
+    systemArray[x][y+1]->whatIsHere = 'o';
 
 }
