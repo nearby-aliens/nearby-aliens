@@ -13,4 +13,5 @@ class chara
   int x;
   int y;
   char m; //input variable for movement
+  int fuel;
 };
