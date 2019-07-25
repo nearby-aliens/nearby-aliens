@@ -14,18 +14,6 @@
 using namespace std;
 
 
-class chara
-{
- public:
-  
-  int x;
-  int y;
-  char m;
-  int fuel;
-
-  //item *list;
-};
-
 class tile
 {
   public:
@@ -39,7 +27,6 @@ class tile
     void move();
     void remove();
     char gethere();
-    //get fuel
     int mine();
     
     int xLocation;
