@@ -26,7 +26,7 @@ void starSystem::playLevel()
   bool orbitCheck = 0; //1 for true -ship is in orbit
   char input = 'z';  //variable for players choice input
 
-  player.fuel=20;//had to add here since new player is made
+  player.fuel=20;//had to add here since new player is made //TODO we could make character first - lets decide later?
 
   //this while loop is the whole level. One function called -calls the orbit sub-menu
   while(input != 'e')  
@@ -54,15 +54,6 @@ void starSystem::playLevel()
     cout << "Please input your choice to move (wasd) or 'e' to exit." <<endl;
     cin >> input;
     cin.ignore(30, '\n');
-    cerr << "input is " << input <<endl;
-    if(input  == 'w'){
-      if(player.y>=HEIGHT-1)
-        cout<<"You are at the top of the display and can not go higher!\n";
-      else
-        player.y+=1;
-      player.m=input;
-      move(player);
-    }
     if(input == 'a'){
       if(player.x<=0)
         cout<<"You are very near the star and at the far left edge of your display. Yon can not go any more to the left!\n";
@@ -98,6 +89,7 @@ void starSystem::move(chara player)
 {
   systemArray[player.x][player.y]->move();
 }
+
 
 void starSystem::remove(chara player)
 {
@@ -188,7 +180,6 @@ void starSystem::markOrbitTiles(int x, int y, char planetCode)
   if(x<WIDTH-1)
     systemArray[x+1][y]->whatIsHere = 'o';
   if(y<HEIGHT-1)
-    systemArray[x][y+1]->whatIsHere = 'o';
+    systemArray[x][y+1]->whatIsHere = 'o'
 
 }
-

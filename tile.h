@@ -29,7 +29,6 @@ class tile
     char gethere();
     int mine();
     
-
     int xLocation;
     int yLocation;
     char whatIsHere; //top left location .for empty space, p=planet, o=orbit. 1,2,3,4,5,6,7,8,9 = part big planet. s=sun
