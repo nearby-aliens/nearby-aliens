@@ -183,3 +183,4 @@ void starSystem::markOrbitTiles(int x, int y, char planetCode)
     systemArray[x][y+1]->whatIsHere = 'o';
 
 }
+
