@@ -3,6 +3,11 @@
 message_inbox::message_inbox()
 {
 }
+int message_inbox::broadcast()
+{
+  cout<<"A request for communication has been broadcasted to any possible available species";
+  return 0;
+}
 //listen to messages
 int message_inbox::message_inbox_listen(char planetCode)
 {
@@ -31,7 +36,7 @@ int message_inbox::decode_message(char planetCode, int recieved_message)
     char test[] = {'h','e','l','l','o'};
     if(hangman(test)){
       cout<<"message is decoded: bring a rock for gift exchange to be allowed to land. Rock is recorded in the inbox with the planet code in front of it..";
-      //inbox[0] = {planetCode,'r','o','c','k'};
+      //inbox[] = {planetCode,'r','o','c','k'};
       return 0;
     }
     else{

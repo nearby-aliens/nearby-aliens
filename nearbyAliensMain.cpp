@@ -7,6 +7,7 @@ using namespace std;
 #include "starSystem.h"
 #include "minigames.h"
 #include "orbit_functions.h"
+#include "events.h"
 int main()
 {
   int starChoice = 8;
@@ -29,6 +30,10 @@ int main()
   //cout<<result2;
   //int result3=inbox.gift_exchange(planetCode, result2);
   //cout<<result3;
+
+  //TESTING FOR EVENTS
+  bool resultb=level_one_function();
+  cout<<resultb;
 
 
   cout << endl << endl << BLUE <<"Welcome to Nearby Aliens. You will search nearby star systems for inteligent life." <<endl <<endl;
