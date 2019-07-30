@@ -13,8 +13,6 @@
 
 using namespace std;
 
-
-
 class tile
 {
   public:
@@ -28,7 +26,6 @@ class tile
     void move();
     void remove();
     char gethere();
-    //get fuel
     int mine();
     
     int xLocation;

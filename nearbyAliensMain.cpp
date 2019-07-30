@@ -5,6 +5,8 @@
 using namespace std;
 
 #include "starSystem.h"
+#include "minigames.h"
+#include "orbit_functions.h"
 int main()
 {
   int starChoice = 8;
@@ -12,6 +14,22 @@ int main()
   player.x=0;
   player.y=0;
   player.fuel=20;
+
+  
+  //TESTING MINIGAME IGNORE
+  //char test[] = {'h','e','l','l','o'};
+  //bool result=hangman(test);
+
+  //TESTING FOR ORBIT FUNCTIONS
+  //message_inbox inbox;
+  //char planetCode='1';
+  //int result1=inbox.message_inbox_listen(planetCode);
+  //cout<<result1;
+  //int result2=inbox.decode_message(planetCode, result1);
+  //cout<<result2;
+  //int result3=inbox.gift_exchange(planetCode, result2);
+  //cout<<result3;
+
 
   cout << endl << endl << BLUE <<"Welcome to Nearby Aliens. You will search nearby star systems for inteligent life." <<endl <<endl;
   while(starChoice != 9)
@@ -59,6 +77,7 @@ int main()
       cout << GREEN << "You have returned home to Sol and Earth!" << RESET<<endl;
       cout << GREEN << "Thanks for playing." << RESET << endl << endl << endl;
 
-  cout <<endl<<endl<<endl;
+cout << RESET << endl;
+  cout <<endl;
   return 0;
 }
