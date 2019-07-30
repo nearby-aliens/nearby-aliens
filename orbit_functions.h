@@ -15,7 +15,7 @@ class message_inbox
   char inbox[200];
   int broadcast();
   int decode_message(char planetCode, int recieved_message);
-  int message_inbox_listen(char planetCode);
+  int message_inbox_listen(char planetCode, int broadcast);
   int gift_exchange(char planetCode, int decoded);
 
 };

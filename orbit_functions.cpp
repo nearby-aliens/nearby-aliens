@@ -9,10 +9,10 @@ int message_inbox::broadcast()
   return 0;
 }
 //listen to messages
-int message_inbox::message_inbox_listen(char planetCode)
+int message_inbox::message_inbox_listen(char planetCode, int broadcast)
 {
   //THIS is where planet code could be used to get a hard coded message
-  if(planetCode=='1'){
+  if(planetCode=='1' && broadcast==0){
     cout<<"sasdfdasdfas;lkjfkdla Decode this message to see what item to bring";
     return 0;
   }

@@ -24,7 +24,9 @@ int main()
   //TESTING FOR ORBIT FUNCTIONS
   //message_inbox inbox;
   //char planetCode='1';
-  //int result1=inbox.message_inbox_listen(planetCode);
+  //int result0=inbox.broadcast();
+  //cout<<result0;
+  //int result1=inbox.message_inbox_listen(planetCode, result0);
   //cout<<result1;
   //int result2=inbox.decode_message(planetCode, result1);
   //cout<<result2;
@@ -32,8 +34,8 @@ int main()
   //cout<<result3;
 
   //TESTING FOR EVENTS
-  bool resultb=level_one_function();
-  cout<<resultb;
+  //bool resultb=level_one_function();
+  //cout<<resultb;
 
 
   cout << endl << endl << BLUE <<"Welcome to Nearby Aliens. You will search nearby star systems for inteligent life." <<endl <<endl;
