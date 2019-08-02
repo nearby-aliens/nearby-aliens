@@ -18,8 +18,8 @@ int main()
 
   
   //TESTING MINIGAME IGNORE
-  char test[] = {'h','e','l','l','o'};
-  bool result=anagram(test);
+  //char test[] = {'h','e','l','l','o'};
+  //bool result=anagram(test);
 
   //TESTING FOR ORBIT FUNCTIONS
   //message_inbox inbox;
