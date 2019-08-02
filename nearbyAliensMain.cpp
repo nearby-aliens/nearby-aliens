@@ -18,8 +18,8 @@ int main()
 
   
   //TESTING MINIGAME IGNORE
-  //char test[] = {'h','e','l','l','o'};
-  //bool result=hangman(test);
+  char test[] = {'h','e','l','l','o'};
+  bool result=anagram(test);
 
   //TESTING FOR ORBIT FUNCTIONS
   //message_inbox inbox;
@@ -32,6 +32,7 @@ int main()
   //cout<<result2;
   //int result3=inbox.gift_exchange(planetCode, result2);
   //cout<<result3;
+  //inbox.display(inbox.head);
 
   //TESTING FOR EVENTS
   //bool resultb=level_one_function();
