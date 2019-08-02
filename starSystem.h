@@ -15,6 +15,7 @@ class starSystem
     void makeSystem(int starName);
     void makeAlphaCentauriSystem();
     void markOrbitTiles(int x, int y, char planetCode); 
+//void clearScreen();
     void playLevel();
     void printStarSystem();
     void move(chara player);

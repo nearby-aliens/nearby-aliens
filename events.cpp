@@ -14,11 +14,11 @@ bool level_one_function()
   cin.ignore(30, '\n');
 
   if(input=='a'){
-    cout>>"you win and the lost civilization rejoins humanity!";
+    cout<<"you win and the lost civilization rejoins humanity!";
     return true;
   }
   else{
-    cout>>"you lost and the lost civilization destroys humanity";
+    cout<<"you lost and the lost civilization destroys humanity";
     return false;
   }
   

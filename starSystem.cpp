@@ -31,6 +31,7 @@ void starSystem::playLevel()
   //this while loop is the whole level. One function called -calls the orbit sub-menu
   while(input != 'e')  
   {
+//    clearScreen();
     if(player.fuel<=0){
       cout<<"fuel ran out game over\n";
       break;
@@ -84,6 +85,15 @@ void starSystem::playLevel()
 
   }//end of while loop - if input is 'e' exit while loop back to main menu
 }
+
+
+
+/*
+void starSystem::clearScreen()
+{
+cout << "\u{1b}[H\u{1b}[2J\u{1b}[3J" << endl;
+}
+*/
 
 void starSystem::move(chara player)
 {

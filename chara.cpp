@@ -11,4 +11,5 @@ chara::chara()
   x = 29;
   y = 10;
   m = 'z'; //input variable for wasd or e for exit
+  fuel = 20;
 }
