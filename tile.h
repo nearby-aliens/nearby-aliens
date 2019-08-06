@@ -13,7 +13,6 @@
 
 using namespace std;
 
-
 class tile
 {
   public:
@@ -32,6 +31,7 @@ class tile
     int xLocation;
     int yLocation;
     char whatIsHere; //top left location .for empty space, p=planet, o=orbit. 1,2,3,4,5,6,7,8,9 = part big planet. s=sun
+    bool messagesExchanged;
     char lifeType; //default N none, can be I inteligent, D not inteligent but dangerous, S safe and not inteligent
     int partialArt; // 0 default. 832 8 for left justified 3 on top row, 2 bottow row. 932 same but right justified
     char color1;

@@ -15,10 +15,11 @@ class starSystem
     void makeSystem(int starName);
     void makeAlphaCentauriSystem();
     void markOrbitTiles(int x, int y, char planetCode); 
-    void playLevel();
+    int orbitMenu(char lifeType,  char whatIsHere);
+    void clearScreen();
+    int playLevel();
     void printStarSystem();
     void move(chara player);
     void remove(chara player);
-  private:
     tile* systemArray[WIDTH][HEIGHT];
 };
