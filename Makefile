@@ -1,28 +1,31 @@
 #Thomas Honnell and Jessica
 
+CPP = g++
+CPPFLAGS = -g -Wall -Werror
+
 output : nearbyAliensMain.o tile.o starSystem.o chara.o minigames.o orbit_functions.o events.o
-	g++ nearbyAliensMain.o tile.o starSystem.o chara.o minigames.o orbit_functions.o events.o -o output
+	$(CPP) $(CPPFLAGS) nearbyAliensMain.o tile.o starSystem.o chara.o minigames.o orbit_functions.o events.o -o output
 
 nearbyAliensMain.o: nearbyAliensMain.cpp colors.h
-	g++ -c nearbyAliensMain.cpp
+	$(CPP) $(CPPFLAGS) -c nearbyAliensMain.cpp
 
 tile.o: tile.cpp tile.h
-	g++ -c tile.cpp
+	$(CPP) $(CPPFLAGS) -c tile.cpp
 
 starSystem.o: starSystem.cpp starSystem.h
-	g++ -c starSystem.cpp
+	$(CPP) $(CPPFLAGS) -c starSystem.cpp
 
 chara.o: chara.cpp chara.h
-	g++ -c chara.cpp
+	$(CPP) $(CPPFLAGS) -c chara.cpp
 
-minigames.o: minigames.cpp
-	g++ -c minigames.cpp
+minigames.o: minigames.cpp minigames.h
+	$(CPP) $(CPPFLAGS) -c minigames.cpp
 
 orbit_functions.o: orbit_functions.cpp orbit_functions.h
-	g++ -c orbit_functions.cpp
+	$(CPP) $(CPPFLAGS) -c orbit_functions.cpp
 
 events.o: events.cpp events.h
-	g++ -c events.cpp
+	$(CPP) $(CPPFLAGS) -c events.cpp
 
 clean:
 	rm *.o output

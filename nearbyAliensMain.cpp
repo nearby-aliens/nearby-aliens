@@ -20,7 +20,7 @@ int main()
   //TESTING ADD inbox
   //message_inbox test;
   //char content[] = {'1','h','e','l','l','o'};
-  //cout<<test.add_message(content,test.head);
+  //cout<<test.add_message(content,&test.head);
   //test.display(test.head);
 
   //testing probe
@@ -34,17 +34,17 @@ int main()
   //bool result=anagram(test);
 
   //TESTING FOR ORBIT FUNCTIONS
-  //message_inbox inbox;
-  //char planetCode='1';
-  //int result0=inbox.broadcast();
-  //cout<<result0;
-  //int result1=inbox.message_inbox_listen(planetCode, result0);
-  //cout<<result1;
-  //int result2=inbox.decode_message(planetCode, result1);
-  //cout<<result2;
-  //int result3=inbox.gift_exchange(planetCode, result2);
-  //cout<<result3;
-  //inbox.display(inbox.head);
+  message_inbox inbox;
+  char planetCode='1';
+  int result0=inbox.broadcast();
+  cout<<result0;
+  int result1=inbox.message_inbox_listen(planetCode, result0);
+  cout<<result1;
+  int result2=inbox.decode_message(planetCode, result1);
+  cout<<result2;
+  int result3=inbox.gift_exchange(planetCode, result2);
+  cout<<result3;
+  inbox.display(inbox.head);
 
   //TESTING FOR EVENTS
   //bool resultb=level_one_function();
@@ -87,7 +87,7 @@ int main()
       cout << endl;
       cout<<CYAN << "Your cyro-cycle has completed and we have arrived!!"<<RESET <<endl <<endl;
       aStarSystem.printStarSystem();
-      retVal = aStarSystem.playLevel();
+      retVal = aStarSystem.playLevel(player);
       starChoice=8;  //resets starSystem variable value, so will enter main menu after exiting level
     }
     //here if starChoice is 9, it will not do the while loop anymore and the game will end
@@ -99,5 +99,5 @@ int main()
 
 cout << RESET << endl;
   cout <<endl;
-  return 0;
+  return retVal;
 }

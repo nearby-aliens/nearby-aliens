@@ -20,9 +20,9 @@ starSystem::starSystem()//initialize array. i columns are across the screen star
   }
 }
 
-int starSystem::playLevel()
+int starSystem::playLevel(chara &player)
 {
-  chara player;
+  
   bool orbitCheck = 0; //1 for true -ship is in orbit
   char input = 'z';  //variable for players choice input
 
@@ -85,13 +85,13 @@ return retval;
     }
 
   }//end of while loop - if input is 'e' exit while loop back to main menu
+  return 1;
 }
 
 int starSystem::orbitMenu(char lifeType,  char whatIsHere)
 {
   cout << "You are now in orbit of a planet!. What would you like to do now?" << endl;  //TODO use string class to output planets name from planet code
   int menuChoice = 0;
-  int returnCode=0; //win=1 blowup=2 getfuel=3 visitNoResult=4 gainEnergyFromMining=5 leaveOrbit=6
   while (menuChoice != 6)
   {
     cout<< "  1) Visit planet." <<endl;
@@ -130,6 +130,8 @@ if (menuChoice == 2)
       }
     }
   }
+  //error return
+  return 1;
 }
 
 
