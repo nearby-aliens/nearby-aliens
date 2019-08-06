@@ -17,7 +17,7 @@ class starSystem
     void markOrbitTiles(int x, int y, char planetCode); 
     int orbitMenu(char lifeType,  char whatIsHere);
     void clearScreen();
-    void playLevel();
+    int playLevel();
     void printStarSystem();
     void move(chara player);
     void remove(chara player);

@@ -20,7 +20,7 @@ starSystem::starSystem()//initialize array. i columns are across the screen star
   }
 }
 
-void starSystem::playLevel()
+int starSystem::playLevel()
 {
   chara player;
   bool orbitCheck = 0; //1 for true -ship is in orbit
@@ -28,28 +28,24 @@ void starSystem::playLevel()
 
   player.fuel=20;//had to add here since new player is made //TODO we could make character first - lets decide later?
 
+
   //this while loop is the whole level. One function called -calls the orbit sub-menu
   while(input != 'e')  
   {
-    //    clearScreen();
-    if(player.fuel<=0){
-      cout<<"fuel ran out game over\n";
-      break;
-    }
-
-    cout<<"this is the amount of fuel owned\n";
-    cout<<player.fuel;
-
+    clearScreen();
     int x = player.x;
     int y = player.y;
     printStarSystem();  //print map first so  all messages show below map
-    if (systemArray[x][y]->whatIsHere = 'o')
+    if (systemArray[x][y]->whatIsHere == 'o') 
       orbitCheck = 1;
     if(orbitCheck) //if in orbit, call orbit menu
     {
-      //orbitMenu();      
-
+      int retval = orbitMenu(systemArray[x][y]->lifeType, systemArray[x][y]->whatIsHere);
+return retval;
     } 
+
+    cout<<"Fuel Gauge: " <<player.fuel << " units of fuel remaining." <<endl;
+
     if(input=='w' || input=='a' || input =='s'|| input == 'd') 
       remove(player);
     cout << "Please input your choice to move (wasd) or 'e' to exit." <<endl;
@@ -79,9 +75,14 @@ void starSystem::playLevel()
       player.m=input;
       move(player);
     }
-    //fuel
     if(input == 'w'|| input == 'a' || input  == 's'||input == 'd')
       player.fuel = player.fuel-1;
+
+
+    if(player.fuel<=0){
+      cout<<"fuel ran out game over\n";
+      input = 'e';
+    }
 
   }//end of while loop - if input is 'e' exit while loop back to main menu
 }
@@ -103,19 +104,33 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere)
     cin.ignore(100, '\n');
     if(menuChoice == 1)
     {
+
       if (lifeType != 'I') 
       {
         cout<< " There is no inteligent life here. You are free to send a probe to mine material for energy" <<endl;
       }
-else 
-{
+      else 
+      {
         cout << "You have successfully communicated with these sentient beings and brought an appropriate gift" << endl;
         cout << "You created a wonderful opportunity for humanity! YOU WIN!!!!" << endl;
 
       }
+}
+if (menuChoice == 2)
+{
+      if (lifeType != 'I') 
+      {
+        cout<< " There is no inteligent life here. You are free to send a probe to mine material for energy" <<endl;
+      }
+      else 
+      {
+        cout << "You have successfully communicated with these sentient beings and brought an appropriate gift" << endl;
+        cout << "You created a wonderful opportunity for humanity! YOU WIN!!!!" << endl;
 
+      }
     }
   }
+}
 
 
 
@@ -227,6 +242,5 @@ else
       systemArray[x+1][y]->whatIsHere = 'o';
     if(y<HEIGHT-1)
       systemArray[x][y+1]->whatIsHere = 'o';
-
   }
 

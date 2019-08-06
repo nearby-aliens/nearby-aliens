@@ -10,6 +10,7 @@ using namespace std;
 int main()
 {
   int starChoice = 8;
+  int retVal;
   chara player;
   player.x=0;
   player.y=0;
@@ -67,7 +68,7 @@ int main()
       cout << endl;
       cout<<CYAN << "Your cyro-cycle has completed and we have arrived!!"<<RESET <<endl <<endl;
       aStarSystem.printStarSystem();
-      aStarSystem.playLevel();
+      retVal = aStarSystem.playLevel();
       starChoice=8;  //resets starSystem variable value, so will enter main menu after exiting level
     }
     //here if starChoice is 9, it will not do the while loop anymore and the game will end
