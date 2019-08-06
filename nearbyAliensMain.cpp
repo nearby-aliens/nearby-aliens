@@ -18,10 +18,10 @@ int main()
   player.fuel=20;
 
   //TESTING ADD inbox
-  message_inbox test;
-  char content[] = {'1','h','e','l','l','o'};
-  cout<<test.add_message(content,test.head);
-  test.display(test.head);
+  //message_inbox test;
+  //char content[] = {'1','h','e','l','l','o'};
+  //cout<<test.add_message(content,test.head);
+  //test.display(test.head);
 
   //testing probe
   //char planetCode='1';
