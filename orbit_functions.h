@@ -29,4 +29,4 @@ class message_inbox
 };
 
 //for mining
-int probe_mine_fuel(char planetCode);
+int probe_mine_fuel(char planetCode, int communicated, char inhabited);

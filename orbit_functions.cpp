@@ -11,8 +11,10 @@ message_inbox::message_inbox()
 int message_inbox::add_message(char *content, message *h)
 {
   if(h==NULL){
-    h = new message;//make new 
-    h->content=content;//assign content
+    h = new message;//make new
+    h->content = new char[strlen(content)+1];
+    strcpy(h->content, content);//assign content
+    
     return 0;
   }
   else

@@ -17,6 +17,17 @@ int main()
   player.y=0;
   player.fuel=20;
 
+  //TESTING ADD inbox
+  //message_inbox test;
+  //char content[] = {'1','h','e','l','l','o'};
+  //cout<<test.add_message(content,test.head);
+  //test.display(test.head);
+
+  //testing probe
+  //char planetCode='1';
+  //char inhabited='y';
+  //int communicated=0;
+  //cout<<probe_mine_fuel(planetCode, communicated, inhabited);
   
   //TESTING MINIGAME IGNORE
   //char test[] = {'h','e','l','l','o'};
