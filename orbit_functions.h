@@ -7,14 +7,26 @@
 using namespace std;
 
 
-
+class message
+{
+ public:
+  message();
+  char *content;
+  message *next;
+};
 class message_inbox
 {
  public:
   message_inbox();
-  char inbox[20][20];
+  message *head;
+  int broadcast();
   int decode_message(char planetCode, int recieved_message);
-  int message_inbox_listen(char planetCode);
+  int message_inbox_listen(char planetCode, int broadcast);
   int gift_exchange(char planetCode, int decoded);
+  int add_message(char *content, message *h);
+  void display(message *h);
 
 };
+
+//for mining
+int probe_mine_fuel(char planetCode);

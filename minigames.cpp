@@ -34,6 +34,8 @@ bool hangman(char *answer_word)
     for(int i=0;i<15;i++){
       cout<<display_string[i];
     }
+    //cout<<display_string;
+    //cout<<answer_word;
     cout<<"\n";
     cout<<"This is a game of hangman. input the letter you wish to guess is ";
     cout<<"part of the solution";
@@ -76,4 +78,60 @@ bool hangman(char *answer_word)
     return true;
   else
     return false;
+}
+
+bool anagram(char *answer_word)
+{
+  int length=strlen(answer_word);
+  int wrong_count=0;
+  char *input_string;
+  int match_letter_count=0;
+
+  char *display_string=new char[length+1];
+  input_string=new char[length+1];
+
+  //initialize empty display
+  for(int i=0;i<length;i++)
+    display_string[i]='_';
+  //randomize here
+  int index=0;
+  for(int i=0;i<length;i++){
+    index = rand() % length;
+    while(display_string[index]!='_'){
+      index = (index + 1) % length;
+    }
+    display_string[index]=answer_word[i];
+  }
+
+  while(wrong_count<6 && strcmp(input_string,answer_word)!=0){
+    cout<<"\n";
+    //display for empty words
+    for(int i=0;i<15;i++){
+      cout<<display_string[i];
+    }
+    cout<<"\n";
+    cout<<"This is a game of anagram. input the word you wish to guess is ";
+    cout<<"the solution ";
+    cin.get(input_string,length+1,'\n');
+    cin.ignore(1000,'\n');
+    for(int i=0;i<length;i++){
+      if(input_string[i]==answer_word[i]){
+        match_letter_count++;
+      }
+    }
+    //check for wrong answer
+    cout<<"the number of matching letter positions is: ";
+    cout<<match_letter_count;
+    match_letter_count=0;
+    wrong_count++;
+
+  }
+  if(strcmp(input_string,answer_word)==0){
+    cout<<"you have successfully guessed the word!";
+    return true;
+  }
+  else{
+    cout<<"you have guessed to many wrong answers and failed";
+    return false;
+  }
 }
