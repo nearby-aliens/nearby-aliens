@@ -142,7 +142,6 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere)
 
       }
     }
-    menuChoice=0;  
   }
   return 1;
 }
