@@ -3,31 +3,46 @@
 message::message()
 {
   next=NULL;
+  content=NULL;
+}
+message::~message()
+{
+  if(next!=NULL)
+    delete next;
+  if(content!=NULL)
+    delete content;
 }
 message_inbox::message_inbox()
 {
   head=NULL;
 }
-int message_inbox::add_message(char *content, message *h)
+message_inbox::~message_inbox()
 {
-  if(h==NULL){
-    h = new message;//make new
-    h->content = new char[strlen(content)+1];
-    strcpy(h->content, content);//assign content
-    
+  if(head!=NULL)
+    delete head;
+}
+int message_inbox::add_message(char *content, message **h)
+{
+  if(*h==NULL){
+    *h = new message;//make new
+    (*h)->content = new char[strlen(content)+1];
+    strcpy((*h)->content, content);//assign content
+    (*h)->next=NULL;
     return 0;
   }
-  else
-    return add_message(content,h->next);//reurse if not working
+  return add_message(content,&(*h)->next);//reurse if not working
 }
 void message_inbox::display(message *h)
 {
   if(h==NULL){
+    cout<<"\n";
     cout<<"end of list of messages";
+    cout<<"\n";
     return;
   }
   else{
     cout<<h->content;
+    cout<<"\n";
     display(h->next);
   }
 }
@@ -61,11 +76,12 @@ int message_inbox::decode_message(char planetCode, int recieved_message)
 
   //MINIGAME GO HERE
   if(planetCode=='1'){
-    char test[] = {'h','e','l','l','o'};
+    char test[] = "hello";
     if(hangman(test)){
       cout<<"message is decoded: bring a rock for gift exchange to be allowed to land. Rock is recorded in the inbox with the planet code in front of it..";
-      //char content[] = {'1','r','o','c','k'};
-      //int result=add_message(content,head);
+      char content[] = "1rock";
+      int result=add_message(content,&head);
+      cout<<result;
       return 0;
     }
     else{
