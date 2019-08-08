@@ -30,21 +30,22 @@ int main()
   //cout<<probe_mine_fuel(planetCode, communicated, inhabited);
   
   //TESTING MINIGAME IGNORE
-  //char test[] = {'h','e','l','l','o'};
+  //char test[] = "hello";
   //bool result=anagram(test);
+  //cout<<result;
 
   //TESTING FOR ORBIT FUNCTIONS
-  message_inbox inbox;
-  char planetCode='1';
-  int result0=inbox.broadcast();
-  cout<<result0;
-  int result1=inbox.message_inbox_listen(planetCode, result0);
-  cout<<result1;
-  int result2=inbox.decode_message(planetCode, result1);
-  cout<<result2;
-  int result3=inbox.gift_exchange(planetCode, result2);
-  cout<<result3;
-  inbox.display(inbox.head);
+  //message_inbox inbox;
+  //char planetCode='1';
+  //int result0=inbox.broadcast();
+  //cout<<result0;
+  //int result1=inbox.message_inbox_listen(planetCode, result0);
+  //cout<<result1;
+  //int result2=inbox.decode_message(planetCode, result1);
+  //cout<<result2;
+  //int result3=inbox.gift_exchange(planetCode, result2);
+  //cout<<result3;
+  //inbox.display(inbox.head);
 
   //TESTING FOR EVENTS
   //bool resultb=level_one_function();
