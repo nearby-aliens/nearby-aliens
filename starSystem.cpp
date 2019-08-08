@@ -84,6 +84,7 @@ int starSystem::playLevel(chara & player)
     }
 
   }//end of while loop - if input is 'e' exit while loop back to main menu
+  return 1;
 }
 
 int starSystem::orbitMenu(char lifeType,  char whatIsHere)   
@@ -91,7 +92,6 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere)
 {
   cout << "You are now in orbit of a planet!. What would you like to do now?" << endl;  //TODO use string class to output planets name from planet code
   int menuChoice = 0;
-  int returnCode=0; //win=1 blowup=2 getfuel=3 visitNoResult=4 gainEnergyFromMining=5 leaveOrbit=6
   while (menuChoice != 6)
   {
     while (menuChoice <= 0 || menuChoice > 6)
@@ -134,6 +134,8 @@ return 1;
       }
     }
   }
+  //error return
+  return 1;
 }
 
 
