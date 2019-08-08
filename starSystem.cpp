@@ -50,6 +50,14 @@ int starSystem::playLevel(chara & player)
     cout << "Please input your choice to move (wasd) or 'e' to exit." <<endl;
     cin >> input;
     cin.ignore(30, '\n');
+    if(input == 'w'){
+      if(player.y>=HEIGHT)
+        cout<<"You are very near the top of the display. you cannot go higher!\n";
+      else
+        player.y+=1;
+      player.m=input;
+      move(player);
+    }
     if(input == 'a'){
       if(player.x<=0)
         cout<<"You are very near the star and at the far left edge of your display. Yon can not go any more to the left!\n";
