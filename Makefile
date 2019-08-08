@@ -1,4 +1,4 @@
-#Thomas Honnell and Jessica
+#Thomas Honnell and Jessica Barnett
 
 output : nearbyAliensMain.o tile.o starSystem.o chara.o minigames.o orbit_functions.o events.o
 	g++ nearbyAliensMain.o tile.o starSystem.o chara.o minigames.o orbit_functions.o events.o -o output
@@ -15,7 +15,7 @@ starSystem.o: starSystem.cpp starSystem.h
 chara.o: chara.cpp chara.h
 	g++ -c chara.cpp
 
-minigames.o: minigames.cpp
+minigames.o: minigames.cpp minigames.h
 	g++ -c minigames.cpp
 
 orbit_functions.o: orbit_functions.cpp orbit_functions.h
