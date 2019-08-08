@@ -88,14 +88,15 @@ int starSystem::playLevel(chara & player)
 }
 
 int starSystem::orbitMenu(char lifeType,  char whatIsHere)   
-//win=1 blowup=2 getfuel=3 visitNoResult=4 gainEnergyFromMining=5 leaveOrbit=6
+  //win=1 blowup=2 getfuel=3 visitNoResult=4 gainEnergyFromMining=5 leaveOrbit=6
 {
-  cout << "You are now in orbit of a planet!. What would you like to do now?" << endl;  //TODO use string class to output planets name from planet code
   int menuChoice = 0;
   while (menuChoice != 6)
   {
-    while (menuChoice <= 0 || menuChoice > 6)
+   do 
     {
+
+    cout << "You are now in orbit of a planet!. What would you like to do now?" << endl;  //TODO use string class to output planets name from planet code
       cout<< "  1) Visit planet." <<endl;
       cout<< "  2) Send probe to mine." <<endl;
       cout<< "  3) Listen for message." <<endl;
@@ -104,19 +105,19 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere)
       cout<< "  6) Leave orbit." <<endl;
       cin>>menuChoice;
       cin.ignore(100, '\n');
-    } 
+    }while (menuChoice <= 0 || menuChoice > 6);
     if(menuChoice == 1)
     {
 
       if (lifeType != 'I') 
       {
-        cout<< " There is no inteligent life here. You are free to send a probe to mine material for energy" <<endl;
+        cout<< "You visit the planet. There is no inteligent life here." <<endl;
       }
       else 
       {
         cout << "You have successfully communicated with these sentient beings and brought an appropriate gift" << endl;
         cout << "You created a wonderful opportunity for humanity! YOU WIN!!!!" << endl;
-return 1;
+        return 1;
 
       }
     }
@@ -124,7 +125,7 @@ return 1;
     {
       if (lifeType != 'I') 
       {
-        cout<< " There is no inteligent life here. You are free to send a probe to mine material for energy" <<endl;
+        cout<< "You send a probe.  There is no inteligent life here." <<endl;
       }
       else 
       {
@@ -133,8 +134,8 @@ return 1;
 
       }
     }
+    menuChoice=0;  
   }
-  //error return
   return 1;
 }
 
@@ -234,20 +235,28 @@ void starSystem::makeAlphaCentauriSystem()
 void starSystem::markOrbitTiles(int x, int y, char whichPlanet, char life)
 {
   if(x>0)
+  {
     systemArray[x-1][y]->whatIsHere = 'o';
     systemArray[x-1][y]->planetCode = whichPlanet;
     systemArray[x-1][y]->lifeType = life;
+  }
   if(y>0)
+  {
     systemArray[x][y-1]->whatIsHere = 'o';
     systemArray[x][y-1]->planetCode = whichPlanet;
     systemArray[x][y-1]->lifeType = life;
+  }
   if(x<WIDTH-1)
+  {
     systemArray[x+1][y]->whatIsHere = 'o';
     systemArray[x+1][y]->planetCode = whichPlanet;
     systemArray[x+1][y]->lifeType = life;
+  }
   if(y<HEIGHT-1)
+  {
     systemArray[x][y+1]->whatIsHere = 'o';
     systemArray[x][y+1]->planetCode = whichPlanet;;
     systemArray[x][y+1]->lifeType = life;
+  }
 }
 

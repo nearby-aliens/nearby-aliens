@@ -152,11 +152,12 @@ void tile::displayBottom()
   }
 }
 
-void tile::fillPlanet(int i, int j, char aColor, char anotherColor)
+void tile::fillPlanet(int i, int j, char aColor, char anotherColor, char planetCd, char life)
 {
   xLocation = i;
   yLocation = j;
-  lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
+planetCode = planetCd;
+  lifeType = life; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
   whatIsHere = 'p'; //default ., or p for small planet, or 1,2,3,4,5,6,7,8,9 for big planet parts, or S for sun
   color1 = aColor;
   color2 = anotherColor;
