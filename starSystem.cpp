@@ -40,7 +40,7 @@ int starSystem::playLevel(chara & player)
       orbitCheck = 1;
     if(orbitCheck) //if in orbit, call orbit menu
     {
-      int retval = orbitMenu(systemArray[x][y]->lifeType, systemArray[x][y]->whatIsHere);
+      int retval = orbitMenu(systemArray[x][y]->lifeType, systemArray[x][y]->whatIsHere, systemArray[x][y]->planetCode);
       return retval;
     } 
 
@@ -96,14 +96,13 @@ int starSystem::playLevel(chara & player)
   return 1;
 }
 
-int starSystem::orbitMenu(char lifeType,  char whatIsHere)   
+int starSystem::orbitMenu(char lifeType,  char whatIsHere, char planetCode)   
   //win=1 blowup=2 getfuel=3 visitNoResult=4 gainEnergyFromMining=5 leaveOrbit=6
 {
   int menuChoice = 0;
   int broadcast=1;
   int message_recieved=1;
   int decoded=1;
-  char planetCode='1';
   message_inbox inbox;
   while (menuChoice != 6)
   {
@@ -172,7 +171,7 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere)
  if (menuChoice == 3)
  {
    if(lifeType == 'I')
-     message_recieved=inbox.message_inbox_listen(planetCode, broadcast);
+     message_recieved=inbox.message_inbox_listen(lifeType, broadcast);
    else
      cout<<"There is no message response";
  }

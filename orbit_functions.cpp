@@ -52,10 +52,10 @@ int message_inbox::broadcast()
   return 0;
 }
 //listen to messages
-int message_inbox::message_inbox_listen(char planetCode, int broadcast)
+int message_inbox::message_inbox_listen(char lifeType, int broadcast)
 {
   //THIS is where planet code could be used to get a hard coded message
-  if(planetCode=='1' && broadcast==0){
+  if(lifeType=='I' && broadcast==0){
     cout<<"sasdfdasdfas;lkjfkdla Decode this message to see what item to bring";
     return 0;
   }
@@ -75,21 +75,51 @@ int message_inbox::decode_message(char planetCode, int recieved_message)
 
 
   //MINIGAME GO HERE
-  if(planetCode=='1'){
-    char test[] = "hello";
+  if(planetCode=='b'){
+    char test[] = "funny";
     if(hangman(test)){
       cout<<"message is decoded: bring a rock for gift exchange to be allowed to land. Rock is recorded in the inbox with the planet code in front of it..";
-      char content[] = "1rock";
+      char content[] = "brock";
       int result=add_message(content,&head);
       cout<<result;
       return 0;
+    }
+  }
+  else{
+      cout<<"message decoding failed";
+      return 1;
+    }
+
+    if(planetCode=='c'){
+      char test[] = "greetings";
+      if(anagram(test)){
+        cout<<"message is decoded: bring a rock for gift exchange to be allowed to land. Salt is recorded in the inbox with the planet code in front of it..";
+        char content[] = "csalt";
+        int result=add_message(content,&head);
+        cout<<result;
+        return 0;
+      }
     }
     else{
       cout<<"message decoding failed";
       return 1;
     }
-  }
-
+    if(planetCode=='d'){
+      char test[] = "theendforyou";
+      if(hangman(test)){
+        cout<<"message is decoded: bring a rock for gift exchange to be allowed to land. impossible is recorded in the inbox with the planet code in front of it..";
+        char content[] = "dimpossible";
+        int result=add_message(content,&head);
+        cout<<result;
+        return 0;
+      }
+    }
+    else{
+      cout<<"message decoding failed";
+      return 1;
+    }
+    
+    
   cout<<"There is no message to decode";
   return 1;
 }
@@ -101,7 +131,7 @@ int message_inbox::gift_exchange(char planetCode, int decoded)
   cin.get(input,29,'\n');
   cin.ignore(1000,'\n');
 
-  if(planetCode=='1' && decoded==0){
+  if(planetCode=='b' && decoded==0){
     if(strcmp(input,"rock")==0){
       cout<<"successful communication. you may land";
       return 0;
@@ -111,6 +141,28 @@ int message_inbox::gift_exchange(char planetCode, int decoded)
       return 1;
     }
   }
+  if(planetCode=='c' && decoded==0){
+    if(strcmp(input,"salt")==0){
+      cout<<"successful communication. you may land";
+      return 0;
+    }
+    else{
+      cout<<"failed communication. retry";
+      return 1;
+    }
+  }
+  if(planetCode=='d' && decoded==0){
+    if(strcmp(input,"impossible")==0){
+      cout<<"successful communication. you may land";
+      return 0;
+    }
+    else{
+      cout<<"failed communication. retry";
+      return 1;
+    }
+  }
+
+
   cout<<"error";
   return 1;
 
@@ -122,10 +174,27 @@ int probe_mine_fuel(char planetCode, int communicated, char inhabited)
     cout<<"you were blown up by the locals! you should have communicated first..";
     return -1;//for blown up
   }
-  else if(planetCode=='1'){
-    cout<<"you gained 4 fuel";
-    return 4;
+  else if(planetCode=='a'){
+    cout<<"you gained 11 fuel";
+    return 11;
   }
+    else if(planetCode=='b'){
+    cout<<"you gained 10 fuel";
+    return 10;
+  }
+  else if(planetCode=='c'){
+    cout<<"you gained 20 fuel";
+    return 20;
+  }
+  else if(planetCode=='d'){
+    cout<<"you gained 100 fuel";
+    return 100;
+  }
+  else if(planetCode=='e'){
+    cout<<"you gained 7 fuel";
+    return 7;
+  }
+
   else{
     cout<<"this planet has no fuel";
     return 0;
