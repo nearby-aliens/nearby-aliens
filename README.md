@@ -53,7 +53,7 @@ star system and going there. It includes the ASCII art for one system - the alph
 pair star system. It also includes the displaying the players ship, an ASCII symbol, and the
 ability to move in the four direction in the displayed space of the star system.
 
-The "minimum viable product" (MVP) version of the project has 4 star systems to travel to. Each 
+The "minimum viable product" (MVP) version of the project has a fully implemented star systems to travel to. Each 
 system supports getting in orbit of a planet (an adjacent tile). This activates a sub menu to choose 
 between a) send a probe to the surface b) listen for messages c) send messages d) decode messages 
 e) land on planet f) mine/collect material needed to fuel the hyperdrive. 
@@ -66,7 +66,7 @@ wrong in meeting native species. The MVP includes the ability to win and most of
 Advanced features include exploring the surface of planets. This includes exploring the nature of 
 the soil, exploring abandoned alien structures and being shown current thriving alien culture.
 
-Future plans include working on advanced features, maintaining the project for new users to 
+Future plans include developing the other star systems, working on advanced features, maintaining the project for new users to 
 play with and learn the coding for the ASCII art creating new star systems.
 
 # License
