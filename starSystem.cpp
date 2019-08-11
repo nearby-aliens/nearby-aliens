@@ -171,7 +171,10 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere)
     }
  if (menuChoice == 3)
  {
-   message_recieved=inbox.message_inbox_listen(planetCode, broadcast);   
+   if(lifeType == 'I')
+     message_recieved=inbox.message_inbox_listen(planetCode, broadcast);
+   else
+     cout<<"There is no message response";
  }
  if (menuChoice == 4)
  {
@@ -179,7 +182,10 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere)
  }
  if (menuChoice == 5)
  {
-   decoded=inbox.decode_message(planetCode, message_recieved);
+   if(lifeType == 'I')
+     decoded=inbox.decode_message(planetCode, message_recieved);
+   else
+     cout<<"you have no message";
  }
 
   }
