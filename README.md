@@ -44,8 +44,8 @@ space.
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please note that this project is released with a Contributor Code of Conduct. By participating 
-in this project you agree to abide by its terms. The code of conduct is enforced by a benevolent 
-dictator :). That said, we have not had any problems. We are kind and encouraging to each other.
+in this project you agree to abide by its terms. The code of conduct is enforced by benevolent 
+dictator(s) :). That said, we have not had any problems. We are kind and encouraging to each other.
 
 # Roadmap
 The "demo" or "prototype" version includes the basic menu structure of choosing a 
