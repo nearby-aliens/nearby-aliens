@@ -3,6 +3,7 @@
 //starSystem.cpp
 
 #include "starSystem.h"
+#include "orbit_functions.h"
 //constructor
 
 //initialize array. i columns are across the screen starting with 0 on the left
@@ -99,6 +100,11 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere)
   //win=1 blowup=2 getfuel=3 visitNoResult=4 gainEnergyFromMining=5 leaveOrbit=6
 {
   int menuChoice = 0;
+  int broadcast=1;
+  int message_recieved=1;
+  int decoded=1;
+  char planetCode='1';
+  message_inbox inbox;
   while (menuChoice != 6)
   {
    do 
@@ -123,25 +129,65 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere)
       }
       else 
       {
+	if(inbox.gift_exchange(planetCode, decoded))
+          {
         cout << "You have successfully communicated with these sentient beings and brought an appropriate gift" << endl;
         cout << "You created a wonderful opportunity for humanity! YOU WIN!!!!" << endl;
+	  }
+	else{
+          cout<<"you failed to communicated with gift exchange. you lose";
+        }
         return 1;
-
       }
     }
     if (menuChoice == 2)
     {
       if (lifeType != 'I') 
       {
+        cout<< " There is no inteligent life here. You are free to send a probe to mine material for energy" <<endl;
+        char inhabited='n';
+        int communicated=1;
+        int fuel=probe_mine_fuel(planetCode, communicated, inhabited);
+	//RETURN FUEL? otherwise need another pass by reference
+	return fuel;
         cout<< "You send a probe.  There is no inteligent life here." <<endl;
       }
       else 
       {
+	if(inbox.gift_exchange(planetCode, decoded))
+	  {
         cout << "You have successfully communicated with these sentient beings and brought an appropriate gift" << endl;
         cout << "You created a wonderful opportunity for humanity! YOU WIN!!!!" << endl;
-
+        char inhabited='y';
+        int communicated=0;
+        int fuel=probe_mine_fuel(planetCode, communicated, inhabited);
+	//return or what with fuel?
+	return fuel;
+      }
+	else{
+	  cout<<"you failed to communicated with gift exchange. you lose";
+	}
       }
     }
+ if (menuChoice == 3)
+ {
+   if(lifeType == 'I')
+     message_recieved=inbox.message_inbox_listen(planetCode, broadcast);
+   else
+     cout<<"There is no message response";
+ }
+ if (menuChoice == 4)
+ {
+   broadcast=inbox.broadcast();
+ }
+ if (menuChoice == 5)
+ {
+   if(lifeType == 'I')
+     decoded=inbox.decode_message(planetCode, message_recieved);
+   else
+     cout<<"you have no message";
+ }
+
   }
   return 1;
 }
