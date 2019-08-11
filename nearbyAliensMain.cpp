@@ -65,7 +65,7 @@ int main()
       cout << "   3)Bernard's Star (5.96 light years)" <<endl;
       cout << "   4)Wolf 359 (7.78 light years)" <<endl;
       cout << "   5)Ross 128 (11.03 light years)" <<endl;
-      cout << "   9)To end the game and return to sol and earth! :)" <<endl;
+      cout << "   9)To end the game and return to sol and earth! :)" <<endl<<endl;
       cout <<BLUE<< " Enter the number of your choice: " << RESET <<endl;
       cin >> starChoice;
       cin.ignore(30, '\n');

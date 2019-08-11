@@ -1,4 +1,4 @@
-#Thomas Honnell and Jessica
+#Thomas Honnell and Jessica Barnett
 
 CPP = g++
 CPPFLAGS = -g -Wall -Werror
