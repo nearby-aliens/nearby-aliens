@@ -26,7 +26,7 @@ int starSystem::playLevel(chara & player)
   bool orbitCheck = 0; //1 for true -ship is in orbit
   char input = 'z';  //variable for players choice input
 
-  player.fuel=20;//had to add here since new player is made 
+  //player.fuel=20;//had to add here since new player is made 
 
 
   //this while loop is the whole level. One function called -calls the orbit sub-menu

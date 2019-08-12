@@ -172,7 +172,6 @@ planetCode = planetCd;
   bRightEdge=' ';
 }
 
-
 void tile::fillSunTile( char aColor, char anotherColor)
 {
   lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent

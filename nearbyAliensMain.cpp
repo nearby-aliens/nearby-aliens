@@ -15,7 +15,7 @@ int main()
   chara player;
   player.x=0;
   player.y=0;
-  player.fuel=20;
+  player.fuel=200;
 
   //TESTING ADD inbox
   //message_inbox test;
