@@ -23,7 +23,7 @@ class message_inbox
   message *head;
   int broadcast();
   int decode_message(char planetCode, int recieved_message);
-  int message_inbox_listen(char planetCode, int broadcast);
+  int message_inbox_listen(char lifeType, int broadcast);
   int gift_exchange(char planetCode, int decoded);
   int add_message(char *content, message **h);
   void display(message *h);
