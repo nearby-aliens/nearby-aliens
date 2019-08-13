@@ -3,6 +3,7 @@
 //starSystem.cpp
 
 #include "starSystem.h"
+#include "orbit_functions.h"
 //constructor
 
 //initialize array. i columns are across the screen starting with 0 on the left
@@ -20,44 +21,39 @@ starSystem::starSystem()//initialize array. i columns are across the screen star
   }
 }
 
-void starSystem::playLevel()
+int starSystem::playLevel(chara & player)
 {
-  chara player;
   bool orbitCheck = 0; //1 for true -ship is in orbit
   char input = 'z';  //variable for players choice input
 
-  player.fuel=20;//had to add here since new player is made
+  player.fuel=20;//had to add here since new player is made 
+
 
   //this while loop is the whole level. One function called -calls the orbit sub-menu
   while(input != 'e')  
   {
-    if(player.fuel<=0){
-      cout<<"fuel ran out game over";
-      break;
-    }
-
-    cout<<"this is the amount of fuel owned\n";
-    cout<<player.fuel;
-
+    clearScreen();
     int x = player.x;
     int y = player.y;
     printStarSystem();  //print map first so  all messages show below map
-    if (systemArray[x][y]->whatIsHere = 'o')
+    if (systemArray[x][y]->whatIsHere == 'o') 
       orbitCheck = 1;
     if(orbitCheck) //if in orbit, call orbit menu
     {
-      
-
+      int retval = orbitMenu(systemArray[x][y]->lifeType, systemArray[x][y]->whatIsHere, systemArray[x][y]->planetCode);
+      return retval;
     } 
+
+    cout<<"Fuel Gauge: " <<player.fuel << " units of fuel remaining." <<endl;
+
     if(input=='w' || input=='a' || input =='s'|| input == 'd') 
       remove(player);
     cout << "Please input your choice to move (wasd) or 'e' to exit." <<endl;
     cin >> input;
     cin.ignore(30, '\n');
-    cerr << "input is " << input <<endl;
-    if(input  == 'w'){
-      if(player.y>=HEIGHT-1)
-        cout<<"You are at the top of the display and can not go higher!\n";
+    if(input == 'w'){
+      if(player.y>=HEIGHT)
+        cout<<"You are very near the top of the display. you cannot go higher!\n";
       else
         player.y+=1;
       player.m=input;
@@ -87,17 +83,126 @@ void starSystem::playLevel()
       player.m=input;
       move(player);
     }
-    //fuel
     if(input == 'w'|| input == 'a' || input  == 's'||input == 'd')
       player.fuel = player.fuel-1;
 
+
+    if(player.fuel<=0){
+      cout<<"fuel ran out game over\n";
+      input = 'e';
+    }
+
   }//end of while loop - if input is 'e' exit while loop back to main menu
+  return 1;
+}
+
+int starSystem::orbitMenu(char lifeType,  char whatIsHere, char planetCode)   
+  //win=1 blowup=2 getfuel=3 visitNoResult=4 gainEnergyFromMining=5 leaveOrbit=6
+{
+  int menuChoice = 0;
+  int broadcast=1;
+  int message_recieved=1;
+  int decoded=1;
+  message_inbox inbox;
+  while (menuChoice != 6)
+  {
+   do 
+    {
+
+    cout << "You are now in orbit of a planet!. What would you like to do now?" << endl;  //TODO use string class to output planets name from planet code
+      cout<< "  1) Visit planet." <<endl;
+      cout<< "  2) Send probe to mine." <<endl;
+      cout<< "  3) Listen for message." <<endl;
+      cout<< "  4) Broadcase message." <<endl;
+      cout<< "  5) Decode message by playing a mini game." <<endl;
+      cout<< "  6) Leave orbit." <<endl;
+      cin>>menuChoice;
+      cin.ignore(100, '\n');
+    }while (menuChoice <= 0 || menuChoice > 6);
+    if(menuChoice == 1)
+    {
+
+      if (lifeType != 'I') 
+      {
+        cout<< "You visit the planet. There is no inteligent life here." <<endl;
+      }
+      else 
+      {
+	if(inbox.gift_exchange(planetCode, decoded))
+          {
+        cout << "You have successfully communicated with these sentient beings and brought an appropriate gift" << endl;
+        cout << "You created a wonderful opportunity for humanity! YOU WIN!!!!" << endl;
+	  }
+	else{
+          cout<<"you failed to communicated with gift exchange. you lose";
+        }
+        return 1;
+      }
+    }
+    if (menuChoice == 2)
+    {
+      if (lifeType != 'I') 
+      {
+        cout<< " There is no inteligent life here. You are free to send a probe to mine material for energy" <<endl;
+        char inhabited='n';
+        int communicated=1;
+        int fuel=probe_mine_fuel(planetCode, communicated, inhabited);
+	//RETURN FUEL? otherwise need another pass by reference
+	return fuel;
+        cout<< "You send a probe.  There is no inteligent life here." <<endl;
+      }
+      else 
+      {
+	if(inbox.gift_exchange(planetCode, decoded))
+	  {
+        cout << "You have successfully communicated with these sentient beings and brought an appropriate gift" << endl;
+        cout << "You created a wonderful opportunity for humanity! YOU WIN!!!!" << endl;
+        char inhabited='y';
+        int communicated=0;
+        int fuel=probe_mine_fuel(planetCode, communicated, inhabited);
+	//return or what with fuel?
+	return fuel;
+      }
+	else{
+	  cout<<"you failed to communicated with gift exchange. you lose";
+	}
+      }
+    }
+ if (menuChoice == 3)
+ {
+   if(lifeType == 'I')
+     message_recieved=inbox.message_inbox_listen(lifeType, broadcast);
+   else
+     cout<<"There is no message response";
+ }
+ if (menuChoice == 4)
+ {
+   broadcast=inbox.broadcast();
+ }
+ if (menuChoice == 5)
+ {
+   if(lifeType == 'I')
+     decoded=inbox.decode_message(planetCode, message_recieved);
+   else
+     cout<<"you have no message";
+ }
+
+  }
+  return 1;
+}
+
+
+
+void starSystem::clearScreen()
+{
+  cout <<"\033[H\033[2J\033[3J" << endl;
 }
 
 void starSystem::move(chara player)
 {
   systemArray[player.x][player.y]->move();
 }
+
 
 void starSystem::remove(chara player)
 {
@@ -166,29 +271,44 @@ void starSystem::makeAlphaCentauriSystem()
   //make planets. alpha centauri has no confirmed planets. 
   //wikipedia cites a source that estimates at 75% that terrestrial planets are there
   //with artistic license we put some here :)
-  systemArray[7][2]->fillPlanet(5,2,'g', 'c'); // green on cyan small close in planet
-  markOrbitTiles(7, 2, 'p'); //this is a function of the starSystem class that marks spaces adjacent to the added planet
-  systemArray[13][5]->fillPlanet(5,2,'b','m'); // blue on magenta small 2nd closest in planet
-  markOrbitTiles(13, 5, 'p'); //this is a function of the starSystem class that marks spaces adjacent to the added planet
-  systemArray[17][10]->fillPlanet(5,2,'b','m'); // blue on magenta small 3rd
-  markOrbitTiles(17, 10, 'p'); //this is a function of the starSystem class that marks spaces adjacent to the added planet
-  systemArray[24][1]->fillPlanet(5,2,'b','m'); // blue on magenta small 4th closest in planet
-  markOrbitTiles(24,1, 'p'); //this is a function of the starSystem class that marks spaces adjacent to the added planet
-  systemArray[29][7]->fillPlanet(5,2,'b','m'); // blue on magenta small 5th closest in planet
-  markOrbitTiles(29, 7, 'p'); //this is a function of the starSystem class that marks spaces adjacent to the added planet
+  systemArray[7][2]->fillPlanet(5,2,'g', 'c', 'a', 'N' ); // green on cyan small close in planet, planet code a, lifeType None
+  markOrbitTiles(7, 2, 'a', 'N'); //this is a function of the starSystem class that marks spaces adjacent to the added planet - inputs: x, y, and a,b,c,d,e planetCode,  LifeType
+  systemArray[13][5]->fillPlanet(5,2,'b','m', 'b', 'I'); // blue on magenta small 2nd closest in planet
+  markOrbitTiles(13, 5, 'b', 'I'); //this is a function of the starSystem class that marks spaces adjacent to the added planet
+  systemArray[17][10]->fillPlanet(5,2,'b','m', 'c', 'I'); // blue on magenta small 3rd
+  markOrbitTiles(17, 10, 'c', 'I'); //this is a function of the starSystem class that marks spaces adjacent to the added planet
+  systemArray[24][1]->fillPlanet(5,2,'b','m', 'd', 'I'); // blue on magenta small 4th closest in planet
+  markOrbitTiles(24,1, 'd', 'I'); //this is a function of the starSystem class that marks spaces adjacent to the added planet
+  systemArray[29][7]->fillPlanet(5,2,'b','m', 'e', 'N'); // blue on magenta small 5th closest in planet
+  markOrbitTiles(29, 7, 'e', 'N'); //this is a function of the starSystem class that marks spaces adjacent to the added planet
 }
 
 //this is a function of the starSystem class that marks spaces adjacent to the added planet
-void starSystem::markOrbitTiles(int x, int y, char planetCode)
+void starSystem::markOrbitTiles(int x, int y, char whichPlanet, char life)
 {
   if(x>0)
+  {
     systemArray[x-1][y]->whatIsHere = 'o';
+    systemArray[x-1][y]->planetCode = whichPlanet;
+    systemArray[x-1][y]->lifeType = life;
+  }
   if(y>0)
+  {
     systemArray[x][y-1]->whatIsHere = 'o';
+    systemArray[x][y-1]->planetCode = whichPlanet;
+    systemArray[x][y-1]->lifeType = life;
+  }
   if(x<WIDTH-1)
+  {
     systemArray[x+1][y]->whatIsHere = 'o';
+    systemArray[x+1][y]->planetCode = whichPlanet;
+    systemArray[x+1][y]->lifeType = life;
+  }
   if(y<HEIGHT-1)
+  {
     systemArray[x][y+1]->whatIsHere = 'o';
-
+    systemArray[x][y+1]->planetCode = whichPlanet;;
+    systemArray[x][y+1]->lifeType = life;
+  }
 }
 

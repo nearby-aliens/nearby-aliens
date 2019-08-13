@@ -11,14 +11,14 @@ class starSystem
 {
   public:
     starSystem(); //constructor
-    //void addSmallPlanet(int i, int j, char color1, char color2);
     void makeSystem(int starName);
     void makeAlphaCentauriSystem();
-    void markOrbitTiles(int x, int y, char planetCode); 
-    void playLevel();
+    void markOrbitTiles(int x, int y, char planetCode, char lifeType); //planet codes for ACentauri planet a, b, c, d, e 
+    int orbitMenu(char lifeType, char whatIsHere, char planetCode);
+    void clearScreen();
+    int playLevel(chara & player);
     void printStarSystem();
     void move(chara player);
     void remove(chara player);
-  private:
     tile* systemArray[WIDTH][HEIGHT];
 };

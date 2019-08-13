@@ -6,18 +6,50 @@ using namespace std;
 
 #include "starSystem.h"
 #include "minigames.h"
+#include "orbit_functions.h"
+#include "events.h"
 int main()
 {
   int starChoice = 8;
+  int retVal;
   chara player;
   player.x=0;
   player.y=0;
   player.fuel=20;
 
+  //TESTING ADD inbox
+  //message_inbox test;
+  //char content[] = {'1','h','e','l','l','o'};
+  //cout<<test.add_message(content,&test.head);
+  //test.display(test.head);
+
+  //testing probe
+  //char planetCode='1';
+  //char inhabited='y';
+  //int communicated=0;
+  //cout<<probe_mine_fuel(planetCode, communicated, inhabited);
   
   //TESTING MINIGAME IGNORE
-  //char test[] = {'h','e','l','l','o'};
-  //bool result=hangman(test);
+  //char test[] = "hello";
+  //bool result=anagram(test);
+  //cout<<result;
+
+  //TESTING FOR ORBIT FUNCTIONS
+  //message_inbox inbox;
+  //char planetCode='1';
+  //int result0=inbox.broadcast();
+  //cout<<result0;
+  //int result1=inbox.message_inbox_listen(planetCode, result0);
+  //cout<<result1;
+  //int result2=inbox.decode_message(planetCode, result1);
+  //cout<<result2;
+  //int result3=inbox.gift_exchange(planetCode, result2);
+  //cout<<result3;
+  //inbox.display(inbox.head);
+
+  //TESTING FOR EVENTS
+  //bool resultb=level_one_function();
+  //cout<<resultb;
 
 
   cout << endl << endl << BLUE <<"Welcome to Nearby Aliens. You will search nearby star systems for inteligent life." <<endl <<endl;
@@ -33,7 +65,7 @@ int main()
       cout << "   3)Bernard's Star (5.96 light years)" <<endl;
       cout << "   4)Wolf 359 (7.78 light years)" <<endl;
       cout << "   5)Ross 128 (11.03 light years)" <<endl;
-      cout << "   9)To end the game and return to sol and earth! :)" <<endl;
+      cout << "   9)To end the game and return to sol and earth! :)" <<endl<<endl;
       cout <<BLUE<< " Enter the number of your choice: " << RESET <<endl;
       cin >> starChoice;
       cin.ignore(30, '\n');
@@ -56,7 +88,7 @@ int main()
       cout << endl;
       cout<<CYAN << "Your cyro-cycle has completed and we have arrived!!"<<RESET <<endl <<endl;
       aStarSystem.printStarSystem();
-      aStarSystem.playLevel();
+      retVal = aStarSystem.playLevel(player);
       starChoice=8;  //resets starSystem variable value, so will enter main menu after exiting level
     }
     //here if starChoice is 9, it will not do the while loop anymore and the game will end
@@ -68,5 +100,5 @@ int main()
 
 cout << RESET << endl;
   cout <<endl;
-  return 0;
+  return retVal;
 }

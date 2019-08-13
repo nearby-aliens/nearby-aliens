@@ -11,7 +11,9 @@ tile::tile() //constuctor
   xLocation = 0;
   yLocation = 0;
   lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
-  whatIsHere = '.'; //default ., p=planet, o=orbit, 1,2,...9=part of a planet, s=star
+  whatIsHere = '.'; //default ., a,b,c,d,e=planetCodes, o=orbit, 1,2,...9=part of a planet, s=star
+  planetCode = 'z';
+  messagesExchanged =0;
   partialArt = ' ';
   color1 = 'a';
   color2 = 'a';
@@ -36,7 +38,9 @@ tile::tile(int i, int j) //constuctor
   xLocation = i;
   yLocation = j;
   lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
-  whatIsHere = '.'; //default ., p=planet, o=orbit, 1,2,...9=part of a planet, s=star
+  whatIsHere = '.'; //default ., a,b,c,d,e, planetCodes, o=orbit, 1,2,...9=part of a planet, s=star
+  planetCode = 'z';
+  messagesExchanged = 0;
   partialArt = ' ';//default ' ' - 832 means left justified 3on top display line, 2 on bottom line. 932 would mean right justified 
   color1 = 'a';
   color2 = 'a';
@@ -148,11 +152,12 @@ void tile::displayBottom()
   }
 }
 
-void tile::fillPlanet(int i, int j, char aColor, char anotherColor)
+void tile::fillPlanet(int i, int j, char aColor, char anotherColor, char planetCd, char life)
 {
   xLocation = i;
   yLocation = j;
-  lifeType ='N'; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
+planetCode = planetCd;
+  lifeType = life; //default N for none, or I for inteligent, or D for dangerous not inteligent, or S safe not inteligent
   whatIsHere = 'p'; //default ., or p for small planet, or 1,2,3,4,5,6,7,8,9 for big planet parts, or S for sun
   color1 = aColor;
   color2 = anotherColor;
