@@ -15,7 +15,7 @@ int main()
   chara player;
   player.x=0;
   player.y=0;
-  player.fuel=20;
+  player.fuel=200;
 
   //TESTING ADD inbox
   //message_inbox test;
@@ -28,7 +28,7 @@ int main()
   //char inhabited='y';
   //int communicated=0;
   //cout<<probe_mine_fuel(planetCode, communicated, inhabited);
-  
+
   //TESTING MINIGAME IGNORE
   //char test[] = "hello";
   //bool result=anagram(test);
@@ -77,8 +77,6 @@ int main()
     cout << "You have chosen " << starChoice << ". Good Choice." <<endl;
     cout << "Please make yourself comfortable in the cryo-chamber, and I will wake you when we arrive." <<endl;
 
-
-
     starSystem aStarSystem; //new starSytem object
     // choice 2
     if(starChoice==2)
@@ -90,15 +88,28 @@ int main()
       aStarSystem.printStarSystem();
       retVal = aStarSystem.playLevel(player);
       starChoice=8;  //resets starSystem variable value, so will enter main menu after exiting level
-    }
-    //here if starChoice is 9, it will not do the while loop anymore and the game will end
-  }
-  cout <<endl;
-  
-      cout << GREEN << "You have returned home to Sol and Earth!" << RESET<<endl;
-      cout << GREEN << "Thanks for playing." << RESET << endl << endl << endl;
+      if (retVal ==2)
+      {
+        cout << "YOUR SHIP HAS BEEN BLOWN UP! :(. Your family and friends mourn." <<endl;
+        cout << "\nPlease play again." <<endl;
 
-cout << RESET << endl;
-  cout <<endl;
-  return retVal;
+        starChoice = 9;
+      }
+      if (retVal == 3)
+      {
+        cout << "Your ship drifts aimlessly in space. Does someone come to rescue you before you run out of resources? Hope so!  Please play again" <<endl;
+        starChoice =9;
+      }
+    } //here if starChoice is 9, it will not do the while loop anymore and the game will end
+    cout <<endl;
+    if(retVal !=2&& retVal !=3)
+    {
+      cout << GREEN << "You have returned home to Sol and Earth!" << RESET<<endl;
+    }
+    cout << GREEN << "Thanks for playing." << RESET << endl << endl << endl;
+
+    cout << RESET << endl;
+    cout <<endl;
+    return 0;
+  }
 }
