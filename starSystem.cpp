@@ -26,10 +26,6 @@ int starSystem::playLevel(chara & player)
   bool orbitCheck = 0; //1 for true -ship is in orbit
   char input = 'z';  //variable for players choice input
 
-  //player.fuel=20;//had to add here since new player is made 
-
-
-  //this while loop is the whole level. One function called -calls the orbit sub-menu
   while(input != 'e')  
   {
     clearScreen();
@@ -38,10 +34,19 @@ int starSystem::playLevel(chara & player)
     printStarSystem();  //print map first so  all messages show below map
     if (systemArray[x][y]->whatIsHere == 'o') 
       orbitCheck = 1;
+    if (systemArray[x][y]->whatIsHere != 'o') 
+      orbitCheck = 0;
     if(orbitCheck) //if in orbit, call orbit menu
     {
-      int retval = orbitMenu(systemArray[x][y]->lifeType, systemArray[x][y]->whatIsHere, systemArray[x][y]->planetCode);
-      return retval;
+      int retVal = orbitMenu(systemArray[x][y]->lifeType, systemArray[x][y]->whatIsHere, systemArray[x][y]->planetCode);
+      //here we have caught a value in retVal. if its 1 we successfuly talked to aliens. if its 2 we blew up. 
+      //if its 6 user chose to exit. other possibility is 'fuel' was returned
+      //currently NOTHING is done with this retVal unless the value is 2 and we have blown up
+      if(retVal == 2)
+      {
+        return 2; //this returns us to main menu
+      }
+      //if retVal != 2 we stay in playLevel
     } 
 
     cout<<"Fuel Gauge: " <<player.fuel << " units of fuel remaining." <<endl;
@@ -86,18 +91,17 @@ int starSystem::playLevel(chara & player)
     if(input == 'w'|| input == 'a' || input  == 's'||input == 'd')
       player.fuel = player.fuel-1;
 
-
     if(player.fuel<=0){
       cout<<"fuel ran out game over\n";
-      input = 'e';
+      return 2; //2 means died
     }
-
-  }//end of while loop - if input is 'e' exit while loop back to main menu
-  return 1;
+  }//end of while loop - if input is 'e' exit, will return back to main menu
+  return 6; //6 means choose to leave level
 }
 
 int starSystem::orbitMenu(char lifeType,  char whatIsHere, char planetCode)   
-  //win=1 blowup=2 getfuel=3 visitNoResult=4 gainEnergyFromMining=5 leaveOrbit=6
+  //winAtPlanet=1 blowup=2 gainEnergyFromMining=fuel leaveOrbit=6
+  //these are the possible return values from orbit menu
 {
   int menuChoice = 0;
   int broadcast=1;
@@ -106,10 +110,9 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere, char planetCode)
   message_inbox inbox;
   while (menuChoice != 6)
   {
-   do 
+    do 
     {
-
-    cout << "You are now in orbit of a planet!. What would you like to do now?" << endl;  //TODO use string class to output planets name from planet code
+      cout << "You are now in orbit of a planet!. What would you like to do now?" << endl;  //TODO use string class to output planets name from planet code
       cout<< "  1) Visit planet." <<endl;
       cout<< "  2) Send probe to mine." <<endl;
       cout<< "  3) Listen for message." <<endl;
@@ -128,15 +131,16 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere, char planetCode)
       }
       else 
       {
-	if(inbox.gift_exchange(planetCode, decoded))
-          {
-        cout << "You have successfully communicated with these sentient beings and brought an appropriate gift" << endl;
-        cout << "You created a wonderful opportunity for humanity! YOU WIN!!!!" << endl;
-	  }
-	else{
-          cout<<"you failed to communicated with gift exchange. you lose";
+        if(inbox.gift_exchange(planetCode, decoded))
+        {
+          cout << "You have successfully communicated with these sentient beings and brought an appropriate gift" << endl;
+          cout << "You created a wonderful opportunity for humanity!!!" << endl;
+          cout << "You are still in orbit. What next?!" <<endl;
         }
-        return 1;
+        else{
+          cout<<"you failed to communicated with gift exchange. you lose";
+          return 2;   //when player loses it returns 2 to orbit menu loop. Here menuChoice remains 1.
+        }
       }
     }
     if (menuChoice == 2)
@@ -147,48 +151,49 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere, char planetCode)
         char inhabited='n';
         int communicated=1;
         int fuel=probe_mine_fuel(planetCode, communicated, inhabited);
-	//RETURN FUEL? otherwise need another pass by reference
-	return fuel;
-        cout<< "You send a probe.  There is no inteligent life here." <<endl;
+
+        return fuel;
+        cout<< "You sent a probe.  You discovered no evidence of inteligent life here and you mined fuel." <<endl;
+        cout << "Good work getting more fuel! We needed that!!" <<endl;
       }
       else 
       {
-	if(inbox.gift_exchange(planetCode, decoded))
-	  {
-        cout << "You have successfully communicated with these sentient beings and brought an appropriate gift" << endl;
-        cout << "You created a wonderful opportunity for humanity! YOU WIN!!!!" << endl;
-        char inhabited='y';
-        int communicated=0;
-        int fuel=probe_mine_fuel(planetCode, communicated, inhabited);
-	//return or what with fuel?
-	return fuel;
-      }
-	else{
-	  cout<<"you failed to communicated with gift exchange. you lose";
-	}
+        if(inbox.gift_exchange(planetCode, decoded))
+        {
+          cout << "You have successfully communicated with these sentient beings and brought an appropriate gift" << endl;
+          cout << "You created a wonderful opportunity for humanity! YOU WIN!!!!" << endl;
+          //char inhabited='y';
+          //int communicated=0;
+          //int fuel=probe_mine_fuel(planetCode, communicated, inhabited);
+          return 1;  //return 1 for win at this planet
+        }
+        else
+        {
+          cout<<"\n You failed to communicated with gift exchange. You lose.";
+          return 2; //2 means lose
+        }
       }
     }
- if (menuChoice == 3)
- {
-   if(lifeType == 'I')
-     message_recieved=inbox.message_inbox_listen(lifeType, broadcast);
-   else
-     cout<<"There is no message response";
- }
- if (menuChoice == 4)
- {
-   broadcast=inbox.broadcast();
- }
- if (menuChoice == 5)
- {
-   if(lifeType == 'I')
-     decoded=inbox.decode_message(planetCode, message_recieved);
-   else
-     cout<<"you have no message";
- }
-
-  }
-  return 1;
+    if (menuChoice == 3)
+    {
+      if(lifeType == 'I')
+        message_recieved=inbox.message_inbox_listen(lifeType, broadcast);
+      else
+        cout<<"There is no message response";
+    }
+    if (menuChoice == 4)
+    {
+      broadcast=inbox.broadcast();
+    }
+    if (menuChoice == 5)
+    {
+      if(lifeType == 'I')
+        decoded=inbox.decode_message(planetCode, message_recieved);
+      else
+        cout<<"you have no message";
+    }
+  }//this is the end of the while loop. if menuChoice == 6 big while loop ends
+  return 6; //to get here menuChoice is 6 they have left orbit
 }
 
 

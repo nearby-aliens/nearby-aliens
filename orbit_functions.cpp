@@ -85,12 +85,8 @@ int message_inbox::decode_message(char planetCode, int recieved_message)
       return 0;
     }
   }
-  else{
-      cout<<"message decoding failed";
-      return 1;
-    }
 
-    if(planetCode=='c'){
+  else if(planetCode=='c'){
       char test[] = "greetings";
       if(anagram(test)){
         cout<<"message is decoded: bring a rock for gift exchange to be allowed to land. Salt is recorded in the inbox with the planet code in front of it..";
@@ -100,20 +96,16 @@ int message_inbox::decode_message(char planetCode, int recieved_message)
         return 0;
       }
     }
-    else{
-      cout<<"message decoding failed";
-      return 1;
+  else if(planetCode=='d'){
+    char test[] = "theendforyou";
+    if(hangman(test)){
+      cout<<"message is decoded: bring a rock for gift exchange to be allowed to land. impossible is recorded in the inbox with the planet code in front of it..";
+      char content[] = "dimpossible";
+      int result=add_message(content,&head);
+      cout<<result;
+      return 0;
     }
-    if(planetCode=='d'){
-      char test[] = "theendforyou";
-      if(hangman(test)){
-        cout<<"message is decoded: bring a rock for gift exchange to be allowed to land. impossible is recorded in the inbox with the planet code in front of it..";
-        char content[] = "dimpossible";
-        int result=add_message(content,&head);
-        cout<<result;
-        return 0;
-      }
-    }
+   }
     else{
       cout<<"message decoding failed";
       return 1;
