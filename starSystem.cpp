@@ -151,8 +151,8 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere, char planetCode, char
         char inhabited='n';
         int communicated=1;
         int fuel=probe_mine_fuel(planetCode, communicated, inhabited, player);
-cerr << "Fuel added is " <<fuel <<". " <<endl;
-        //TODO we cant return anything here because we need to stay in orbit. we need to make sure fuel has been updated
+        cout << "Fuel added is " <<fuel <<". \n";
+        //we cant return anything here because we need to stay in orbit. we need to make sure fuel has been updated
         cout<< "You sent a probe.  You discovered no evidence of inteligent life here and you mined fuel." <<endl;
         cout << "Good work getting more fuel! We needed that!!" <<endl;
       }
@@ -329,7 +329,7 @@ int starSystem::probe_mine_fuel(char planetCode, int communicated, char inhabite
     cout<<"Your drone was somewhat successful in mining and you gained 11 fuel units. \n;" <<endl;
     player.fuel += 11;
   }
-    else if(planetCode=='b'){
+  else if(planetCode=='b'){
     cout<<"you gained 10 fuel";
   }
   else if(planetCode=='c'){
@@ -346,5 +346,5 @@ int starSystem::probe_mine_fuel(char planetCode, int communicated, char inhabite
   else{
     cout<<"This planet has no fuel";
   }
-return 101;
+  return 101;
 }
