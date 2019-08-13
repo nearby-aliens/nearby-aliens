@@ -1,3 +1,5 @@
+//Jessica Barnett and Thomas Honnell
+//Summer 2019
 #include "orbit_functions.h"
 
 message::message()
@@ -158,39 +160,4 @@ int message_inbox::gift_exchange(char planetCode, int decoded)
   cout<<"error";
   return 1;
 
-}
-
-int probe_mine_fuel(char planetCode, int communicated, char inhabited)
-{
-  if(communicated!=0 && inhabited=='y'){
-    cout<<"you were blown up by the locals! you should have communicated first..";
-    return -1;//for blown up
-  }
-  else if(planetCode=='a'){
-    cout<<"you gained 11 fuel";
-    return 11;
-  }
-    else if(planetCode=='b'){
-    cout<<"you gained 10 fuel";
-    return 10;
-  }
-  else if(planetCode=='c'){
-    cout<<"you gained 20 fuel";
-    return 20;
-  }
-  else if(planetCode=='d'){
-    cout<<"you gained 100 fuel";
-    return 100;
-  }
-  else if(planetCode=='e'){
-    cout<<"you gained 7 fuel";
-    return 7;
-  }
-
-  else{
-    cout<<"this planet has no fuel";
-    return 0;
-  }
-  cout<<"error should not have reached this";
-  return 0;
 }

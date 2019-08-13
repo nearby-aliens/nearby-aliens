@@ -34,11 +34,11 @@ int starSystem::playLevel(chara & player)
     printStarSystem();  //print map first so  all messages show below map
     if (systemArray[x][y]->whatIsHere == 'o') 
       orbitCheck = 1;
-    if (systemArray[x][y]->whatIsHere != 'o') 
+    else
       orbitCheck = 0;
     if(orbitCheck) //if in orbit, call orbit menu
     {
-      int retVal = orbitMenu(systemArray[x][y]->lifeType, systemArray[x][y]->whatIsHere, systemArray[x][y]->planetCode);
+      int retVal = orbitMenu(systemArray[x][y]->lifeType, systemArray[x][y]->whatIsHere, systemArray[x][y]->planetCode, player);
       //here we have caught a value in retVal. if its 1 we successfuly talked to aliens. if its 2 we blew up. 
       //if its 6 user chose to exit. other possibility is 'fuel' was returned
       //currently NOTHING is done with this retVal unless the value is 2 and we have blown up
@@ -92,14 +92,14 @@ int starSystem::playLevel(chara & player)
       player.fuel = player.fuel-1;
 
     if(player.fuel<=0){
-      cout<<"fuel ran out game over\n";
-      return 2; //2 means died
+      cout<<"Oh no! You are light years from everyone you know and you ran out of fuel!! Game over :(\n";
+      return 3; //2 means died
     }
   }//end of while loop - if input is 'e' exit, will return back to main menu
   return 6; //6 means choose to leave level
 }
 
-int starSystem::orbitMenu(char lifeType,  char whatIsHere, char planetCode)   
+int starSystem::orbitMenu(char lifeType,  char whatIsHere, char planetCode, chara & player) 
   //winAtPlanet=1 blowup=2 gainEnergyFromMining=fuel leaveOrbit=6
   //these are the possible return values from orbit menu
 {
@@ -112,9 +112,9 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere, char planetCode)
   {
     do 
     {
-      cout << "You are now in orbit of a planet!. What would you like to do now?" << endl;  //TODO use string class to output planets name from planet code
+      cout << "You are in orbit of a planet!. What would you like to do now?" << endl;  //TODO use string class to output planets name from planet code
       cout<< "  1) Visit planet." <<endl;
-      cout<< "  2) Send probe to mine." <<endl;
+      cout<< "  2) Send probe to mine for fuel." <<endl;
       cout<< "  3) Listen for message." <<endl;
       cout<< "  4) Broadcase message." <<endl;
       cout<< "  5) Decode message by playing a mini game." <<endl;
@@ -124,10 +124,9 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere, char planetCode)
     }while (menuChoice <= 0 || menuChoice > 6);
     if(menuChoice == 1)
     {
-
       if (lifeType != 'I') 
       {
-        cout<< "You visit the planet. There is no inteligent life here." <<endl;
+        cout<< "You visit the planet. You find no evidence of inteligent life." <<endl;
       }
       else 
       {
@@ -138,8 +137,10 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere, char planetCode)
           cout << "You are still in orbit. What next?!" <<endl;
         }
         else{
-          cout<<"you failed to communicated with gift exchange. you lose";
-          return 2;   //when player loses it returns 2 to orbit menu loop. Here menuChoice remains 1.
+          cout<< "Ut oh! An object is heading right for you. You think to yourself....I probably should have tried to communicate" <<endl;
+          cout<< "before attempting to land on an unknown planet. You activate countermeasures to defend yourself in case this is a missile."<<endl;
+          cout<< "Your paltry technology fails and this race successfully eliminates you as the threat you appear to be!" <<endl;
+          return 2;   //when player loses it returns 2 to playLevel function
         }
       }
     }
@@ -147,12 +148,11 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere, char planetCode)
     {
       if (lifeType != 'I') 
       {
-        cout<< " There is no inteligent life here. You are free to send a probe to mine material for energy" <<endl;
         char inhabited='n';
         int communicated=1;
-        int fuel=probe_mine_fuel(planetCode, communicated, inhabited);
-
-        return fuel;
+        int fuel=probe_mine_fuel(planetCode, communicated, inhabited, player);
+cerr << "Fuel added is " <<fuel <<". " <<endl;
+        //TODO we cant return anything here because we need to stay in orbit. we need to make sure fuel has been updated
         cout<< "You sent a probe.  You discovered no evidence of inteligent life here and you mined fuel." <<endl;
         cout << "Good work getting more fuel! We needed that!!" <<endl;
       }
@@ -160,8 +160,10 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere, char planetCode)
       {
         if(inbox.gift_exchange(planetCode, decoded))
         {
-          cout << "You have successfully communicated with these sentient beings and brought an appropriate gift" << endl;
-          cout << "You created a wonderful opportunity for humanity! YOU WIN!!!!" << endl;
+          cout << "You have successfully communicated with these sentient beings. It occurs to you belatedly...I probably should have" << endl;
+          cout << "gone to meet them as they invited instead of sending this probe." <<endl;
+          cout << "Your probe disappears in a ball of flame. You think, well it could have been worse..." << endl;
+          cout << "At least they didn't blow MY SHIP out of the sky!" <<endl;
           //char inhabited='y';
           //int communicated=0;
           //int fuel=probe_mine_fuel(planetCode, communicated, inhabited);
@@ -317,3 +319,32 @@ void starSystem::markOrbitTiles(int x, int y, char whichPlanet, char life)
   }
 }
 
+int starSystem::probe_mine_fuel(char planetCode, int communicated, char inhabited, chara & player)
+{
+  if(communicated!=0 && inhabited=='y'){
+    cout<<"you were blown up by the locals! you should have communicated first..";
+    return -1;//for blown up
+  }
+  else if(planetCode=='a'){
+    cout<<"Your drone was somewhat successful in mining and you gained 11 fuel units. \n;" <<endl;
+    player.fuel += 11;
+  }
+    else if(planetCode=='b'){
+    cout<<"you gained 10 fuel";
+  }
+  else if(planetCode=='c'){
+    cout<<"you gained 20 fuel";
+  }
+  else if(planetCode=='d'){
+    cout<<"you gained 100 fuel";
+  }
+  else if(planetCode=='e'){
+    cout<<"Your drone was amazingly sucessful in mining and you gained 100 fuel units. \n";
+    player.fuel +=100;
+  }
+
+  else{
+    cout<<"This planet has no fuel";
+  }
+return 101;
+}

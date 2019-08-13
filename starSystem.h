@@ -14,11 +14,13 @@ class starSystem
     void makeSystem(int starName);
     void makeAlphaCentauriSystem();
     void markOrbitTiles(int x, int y, char planetCode, char lifeType); //planet codes for ACentauri planet a, b, c, d, e 
-    int orbitMenu(char lifeType, char whatIsHere, char planetCode);
+    int orbitMenu(char lifeType, char whatIsHere, char planetCode, chara & player);
     void clearScreen();
     int playLevel(chara & player);
     void printStarSystem();
     void move(chara player);
     void remove(chara player);
+
+    int probe_mine_fuel(char planetCode, int communicated, char inhabited, chara & player);
     tile* systemArray[WIDTH][HEIGHT];
 };

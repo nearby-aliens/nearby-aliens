@@ -13,3 +13,5 @@ chara::chara()
   m = 'z'; //input variable for wasd or e for exit
   fuel = 200;
 }
+
+

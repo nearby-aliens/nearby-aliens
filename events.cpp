@@ -1,3 +1,5 @@
+//Jessica Barnett and Thomas Honnell
+//Summer 2019
 #include "events.h"
 #include "tile.h"
 
