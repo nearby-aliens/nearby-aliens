@@ -14,6 +14,7 @@ bool hangman(char *answer_word)
   int wrong_count=0;
   char input_letter;
   int match_letter_count=0;
+  //char wrong_string[50];
 
   char *display_string=new char[length+1];
 

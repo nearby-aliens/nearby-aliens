@@ -130,8 +130,7 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere, char planetCode, char
       }
       else 
       {
-if(planetCode == 'b')
-//        if(inbox.gift_exchange(planetCode, decoded))
+        if(inbox.gift_exchange(planetCode, decoded)==0)
         {
           cout << "You have successfully communicated with these sentient beings and brought an appropriate gift" << endl;
           cout << "You created a wonderful opportunity for humanity!!!" << endl;
@@ -159,7 +158,7 @@ if(planetCode == 'b')
       }
       else 
       {
-        if(inbox.gift_exchange(planetCode, decoded))
+        if(inbox.gift_exchange(planetCode, decoded)==0)
         {
           cout << "You have successfully communicated with these sentient beings. It occurs to you belatedly...I probably should have" << endl;
           cout << "gone to meet them as they invited instead of sending this probe." <<endl;
