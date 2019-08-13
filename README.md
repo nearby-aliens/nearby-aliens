@@ -25,12 +25,6 @@ Download Instructions:
 download a zip file and unzip to gain access to the files. You could also clone the repository using git clone <url> and copy paste the url from the download/clone button.
   
 To build the file run make in the terminal. If you wish to recompile run make clean, then run make again. To run the program input ./output to run the output file.
-  
-//TODO - need
-Prerequisites for build
-
-Installation instructions
-
 
 # Project Status
 We are in the beginning stages of building this project. The gameboard in each level is an 
