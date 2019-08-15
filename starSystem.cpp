@@ -130,18 +130,26 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere, char planetCode, char
       }
       else 
       {
-        if(inbox.gift_exchange(planetCode, decoded)==0)
-        {
-          cout << "You have successfully communicated with these sentient beings and brought an appropriate gift" << endl;
-          cout << "You created a wonderful opportunity for humanity!!!" << endl;
-          cout << "You are still in orbit. What next?!" <<endl;
-        }
-        else{
-          cout<< "Ut oh! An object is heading right for you. You think to yourself....I probably should have tried to communicate" <<endl;
-          cout<< "before attempting to land on an unknown planet. You activate countermeasures to defend yourself in case this is a missile."<<endl;
-          cout<< "Your paltry technology fails and this race successfully eliminates you as the threat you appear to be!" <<endl;
-          return 2;   //when player loses it returns 2 to playLevel function
-        }
+	if(decoded==0){ 
+          if(inbox.gift_exchange(planetCode, decoded)==0)
+          {
+            cout << "You have successfully communicated with these sentient beings and brought an appropriate gift" << endl;
+            cout << "You created a wonderful opportunity for humanity!!!" << endl;
+            cout << "You are still in orbit. What next?!" <<endl;
+          }
+          else{
+            cout<< "Ut oh! An object is heading right for you. You think to yourself....I probably should have tried to communicate" <<endl;
+            cout<< "before attempting to land on an unknown planet. You activate countermeasures to defend yourself in case this is a missile."<<endl;
+            cout<< "Your paltry technology fails and this race successfully eliminates you as the threat you appear to be!" <<endl;
+            return 2;   //when player loses it returns 2 to playLevel function
+          }
+	}
+	else{
+	  cout<< "Ut oh! An object is heading right for you. You think to yourself....I probably should have tried to communicate" <<endl;
+            cout<< "before attempting to land on an unknown planet. You activate countermeasures to defend yourself in case this is a missile."<<endl;
+            cout<< "Your paltry technology fails and this race successfully eliminates you as the threat you appear to be!" <<endl;
+            return 2;   //when player loses it returns 2 to playLevel function
+	}
       }
     }
     if (menuChoice == 2)
@@ -158,18 +166,25 @@ int starSystem::orbitMenu(char lifeType,  char whatIsHere, char planetCode, char
       }
       else 
       {
-        if(inbox.gift_exchange(planetCode, decoded)==0)
-        {
-          cout << "You have successfully communicated with these sentient beings. It occurs to you belatedly...I probably should have" << endl;
-          cout << "gone to meet them as they invited instead of sending this probe." <<endl;
-          cout << "Your probe disappears in a ball of flame. You think, well it could have been worse..." << endl;
-          cout << "At least they didn't blow MY SHIP out of the sky!" <<endl;
-          //char inhabited='y';
-          //int communicated=0;
-          //int fuel=probe_mine_fuel(planetCode, communicated, inhabited);
-          return 1;  //return 1 for win at this planet
-        }
-        else
+	if(decoded==0){
+          if(inbox.gift_exchange(planetCode, decoded)==0)
+          {
+            cout << "You have successfully communicated with these sentient beings. It occurs to you belatedly...I probably should have" << endl;
+            cout << "gone to meet them as they invited instead of sending this probe." <<endl;
+            cout << "Your probe disappears in a ball of flame. You think, well it could have been worse..." << endl;
+            cout << "At least they didn't blow MY SHIP out of the sky!" <<endl;
+            //char inhabited='y';
+            //int communicated=0;
+            //int fuel=probe_mine_fuel(planetCode, communicated, inhabited);
+            return 1;  //return 1 for win at this planet
+          }
+          else
+          {
+            cout<<"\n You failed to communicated with gift exchange. You lose.";
+            return 2; //2 means lose
+          }
+	}
+	else
         {
           cout<<"\n You failed to communicated with gift exchange. You lose.";
           return 2; //2 means lose
