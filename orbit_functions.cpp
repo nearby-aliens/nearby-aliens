@@ -38,7 +38,7 @@ void message_inbox::display(message *h)
 {
   if(h==NULL){
     cout<<"\n";
-    cout<<"end of list of messages";
+    cout<<"End of list of messages.\n";
     cout<<"\n";
     return;
   }
@@ -50,7 +50,8 @@ void message_inbox::display(message *h)
 }
 int message_inbox::broadcast()
 {
-  cout<<"A request for communication has been broadcasted to any possible available species";
+  cout<<"A request for communication has been broadcasted in pictures, sounds, symbols, music, and video. \n";
+cout << "You are attempting to reach out to any possible available species\n";
   return 0;
 }
 //listen to messages
@@ -58,13 +59,13 @@ int message_inbox::message_inbox_listen(char lifeType, int broadcast)
 {
   //THIS is where planet code could be used to get a hard coded message
   if(lifeType=='I' && broadcast==0){
-    cout<<"sasdfdasdfas;lkjfkdla Decode this message to see what item to bring";
+    cout<<"sasdfdasdfas;lkjfkdla Decode this message to see what item to bring\n";
     return 0;
   }
 
   //This is for no intelligent life
 
-  cout<<"There is no communication being recieved";
+  cout<<"There is no communication recieved.\n";
   return 1;
 
 }
